@@ -93,6 +93,8 @@ async function main() {
 
   const name = await getName()
   writeHTML(listQA, name)
+  
+  if (window.location.href.includes('&sequence=')) window.location.reload()
 }
 
 main()
