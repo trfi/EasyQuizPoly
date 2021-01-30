@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Easy Quiz Poly - Tr Fi</title>
+	<script src="aqlist.js"></script>
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+	* {
+		margin: 0 auto;
+	}
+	html,body,section {
+	  height: 100%;
+	}
+	body {
+	  background: linear-gradient(-45deg,#E73C7E,#F87108,#14BCD2,#E73C7E,#F87108,#14BCD2,#F87108);
+	  background-size: 400% 400%;
+	  animation: Gradient 15s ease infinite;
+	}
+	@keyframes Gradient {
+	  0% {background-position: 0% 50%}
+	  50% {background-position: 100% 50%}
+	  100% {background-position: 0% 50%}
+	}
+	table {
+	  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	  font-size: 15px;
+	  background-color: #f9f9f9;
+	  width: 92%;
+	  height: 200px;
+	  border-collapse: collapse;
+	  margin-left:auto; 
+	  margin-right:auto;
+	  margin-top: 4%;
+	  margin-bottom: 9%;
+	}
+	table td, table th {
+	  padding-top: 9px;
+	  padding-bottom: 9px;
+	}
+	table td {
+	  color: #666666;
+	}
+	table td:nth-child(3n+0) {
+	  padding-left: 15px;
+	  padding-right: 15px;
+	}
+	table tr:nth-child(even) {
+	  background: #ffffff;
+	}
+	table tr:nth-child(2n+1) {
+	  font-weight: bold;
+	}
+	table tr:hover {
+	  background-color: #ddd;
+	}
+
+	.spinner {
+	  margin: 100px auto 0;
+	  width: 70px;
+	  text-align: center;
+	}
+
+	.spinner > div {
+	  width: 18px;
+	  height: 18px;
+	  background-color: #333;
+
+	  border-radius: 100%;
+	  display: inline-block;
+	  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+	  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+	}
+
+	.spinner .bounce1 {
+	  -webkit-animation-delay: -0.32s;
+	  animation-delay: -0.32s;
+	}
+
+	.spinner .bounce2 {
+	  -webkit-animation-delay: -0.16s;
+	  animation-delay: -0.16s;
+	}
+
+	@-webkit-keyframes sk-bouncedelay {
+	  0%, 80%, 100% { -webkit-transform: scale(0) }
+	  40% { -webkit-transform: scale(1.0) }
+	}
+
+	@keyframes sk-bouncedelay {
+	  0%, 80%, 100% { 
+	    -webkit-transform: scale(0);
+	    transform: scale(0);
+	  } 40% { 
+	    -webkit-transform: scale(1.0);
+	    transform: scale(1.0);
+	  }
+	}
+	header {
+		text-align: center;
+		font-family: 'Varela Round', sans-serif;
+		font-size: 1.3em;
+		padding: 5px 0;
+		background-color: rgba(225,225,225,.7);
+	}
+	footer {
+		font-family: 'Varela Round', sans-serif;
+		font-size: 1.3em;
+		position: fixed;
+		text-align: center;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: 5px 0;
+		background-color: rgba(225,225,225,.7);
+	}
+	footer a { text-decoration: none; }
+	footer a:link { color: green; }
+	footer a:visited { color: green; }
+	footer a:hover { color: red; }
+	#email { color: green; }
+	</style>
+</head>
+<body>
+	<header>
+		Hello <span id="name"></span>
+	</header>
+	<section id="mySection">
+	<div style="background-color: #f9f9f9;
+				width: 92%;
+				height: 90%;
+				margin-left:auto; 
+				margin-right:auto;
+				margin-top: 2%;
+				display: flex;
+				justify-content: center;">
+	<div class="spinner">
+		<div class="bounce1"></div>
+		<div class="bounce2"></div>
+		<div class="bounce3"></div>
+	</div>
+	</div>
+	</section>
+	<footer><div>
+	  Author: <a href="https://fb.com/hi.trfi">Bùi Quang Trường</a> - 
+	  Email: <a href="mailto:truongbuidp@gmail.com">truongbuidp@gmail.com</a></div>
+	</footer>
+</body>
+</html>

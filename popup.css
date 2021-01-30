@@ -1,0 +1,43 @@
+body {
+  min-width: 440px;
+  background-color: blanchedalmond;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  font-size: 13px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  border: 1px solid #82692f;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+img {
+  width: 102px;
+  padding-right: 4px;
+}
+
+footer {
+  text-align: center;
+}
+
+#title {
+  text-align: center;
+}
+
+#channels {
+  width: 100%;
+  background-color: #635f57;
+  border-radius: 5px;
+  color: #fff;
+  height: 30px;
+}
+
+#select-source-combobox:focus {
+  outline: none;
+}
