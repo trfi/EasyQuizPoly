@@ -1,21 +1,25 @@
 const install_notication = `Nhấn follow hoặc kết bạn với tác giả để nhận cập nhật khi có bản mới nhé!
+Mình có nhận làm hộ quiz CMS tất cả các môn, tất cả cơ sở ib fb
 Tính năng:
 - Giải đáp án quiz LMS tất cả các môn (Chỉ áp dụng cơ sở HCM)
 - Giải đáp án quiz Chính trị và Pháp luật CMS (Tất cả cơ sở)
 - Bỏ giới hạn dung lượng upload file fshare khi nộp bài
-- Mình có nhận làm giúp quiz CMS tất cả các môn các cơ sở (có phí inbox)`
+Hướng dẫn: Vào bài quiz cần làm nhấn chuột phải chọn "Giải đáp án"
+Báo lỗi ib fb`
 const update_notication = `Nhấn follow hoặc kết bạn với tác giả để nhận cập nhật khi có bản mới nhé!
-Cập nhật version 1.1.5 14/12/2020:
+Mình có nhận làm hộ quiz CMS tất cả các môn, tất cả cơ sở liên hệ admin
+Cập nhật version 1.1.5 30/1/2021:
 - Giải quiz lms tự động chọn đáp án đúng các bạn chỉ việc nhấn next
 - Bỏ giới hạn dung lượng upload file fshare khi nộp bài (Trường chỉ cho upload file tối đa 16m)`
-const wrong_url_notication = `Vào làm quiz rồi nhấn Giải đáp án nha bồ
-Giải quiz lms chỉ dùng được cho cơ sở TP.HCM`
+const wrong_url_notication = `Vào bài quiz muốn làm rồi nhấn chuột phải chọn "Giải đáp án" nha
+Giải quiz LMS chỉ dùng được cho cơ sở TP.HCM
+Mình có nhận làm hộ quiz CMS tất cả các môn, tất cả cơ sở ib fb`
 
 // Show hide icon
 const match = {
 	conditions: [
     new chrome.declarativeContent.PageStateMatcher({
-      pageUrl: { urlMatches: '(cms.poly.edu.vn|cms.poly.edu.vn/courses)' }
+      pageUrl: { urlMatches: '(cms.poly.edu.vn|lms.poly.edu.vn)' }
     })
   ],
   actions: [ new chrome.declarativeContent.ShowPageAction() ]
@@ -58,8 +62,20 @@ chrome.runtime.onInstalled.addListener(function(details) {
 
 // Open popup list quiz
 
-function executeScript(site) {
-  console.log(site)
+function executeScript(tab_url) {
+  let site = tab_url.includes('cms') ? 'cms' : 'lms'
+  console.log(tab_url)
+  if (site == 'lms') {
+    let a = !tab_url.includes('ilObjTestGUI')
+    if (!tab_url.includes('ilObjTestGUI') && 
+    !tab_url.includes('iltestplayerrandomquestionsetgui') &&
+    !tab_url.includes('ilobjtestgui') &&
+    !tab_url.includes('goto.php?target=tst_')) {
+      alert(wrong_url_notication)
+      return
+    }
+  }
+
   let swidth = screen.width*0.39;
   let left = screen.width - swidth;
 
@@ -70,10 +86,10 @@ function executeScript(site) {
 chrome.contextMenus.onClicked.addListener(function(info, tab) {
   const tab_url = tab.url
   if (info.menuItemId === 'getQuestion' && tab_url.includes('cms.poly.edu.vn')) {
-    executeScript('cms')
+    executeScript(tab_url)
   }
   else if (info.menuItemId === 'getQuestion' && tab_url.includes('hcm-lms.poly.edu.vn')) {
-    executeScript('lms')
+    executeScript(tab_url)
   }
   else {
     alert(wrong_url_notication)
@@ -83,10 +99,10 @@ chrome.contextMenus.onClicked.addListener(function(info, tab) {
 chrome.pageAction.onClicked.addListener(function(tab) {
   const tab_url = tab.url
   if (tab_url.includes('cms.poly.edu.vn')) {
-    executeScript('cms')
+    executeScript(tab_url)
   }
   else if (tab_url.includes('hcm-lms.poly.edu.vn')) {
-    executeScript('lms')
+    executeScript(tab_url)
   }
   else {
     alert(wrong_url_notication)
