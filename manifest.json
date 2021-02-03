@@ -10,6 +10,7 @@
   "content_scripts": [
     {
       "matches": ["http://*.poly.edu.vn/*&sequence=*"],
+      "run_at": "document_end",
       "js": ["lmsAutoAswer.js"]
     },
     {
@@ -17,7 +18,7 @@
       "js": ["unlimitUploadFshare.js"]
     }
   ],
-  "version": "1.1.5",
+  "version": "1.1.6",
   "author": "fb.com/hi.trfi",
   "icons": {
     "16": "icon.png",

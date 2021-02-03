@@ -10,7 +10,7 @@ try {
     console.log(data.listQA);
     textAnswer = data.listQA[sequence-1].ans;
     console.log(textAnswer);
-    [...document.querySelectorAll('.middle>label')].find(el => el.textContent.includes(textAnswer)).click()
+    [...document.querySelectorAll('.middle>label')].find(el => el.textContent.includes(textAnswer)).dispatchEvent(new MouseEvent('click'));
   })
 } catch (error) {
   alert(`Đã xảy ra lỗi khi tự điền đáp án. Liên hệ Admin báo lỗi: ${error}}`)

@@ -40,13 +40,13 @@ chrome.runtime.onInstalled.addListener(function(details) {
       alert(install_notication)
     });
   }
-  else if (details.reason == "update") {
-    chrome.tabs.create({'url': 'https://fb.com/hi.trfi'}, function(tab) {
-      alert(update_notication)
-    });
-    var thisVersion = chrome.runtime.getManifest().version;
-    console.log("Updated from " + details.previousVersion + " to " + thisVersion + "!");
-  }
+  // else if (details.reason == "update") {
+  //   chrome.tabs.create({'url': 'https://fb.com/hi.trfi'}, function(tab) {
+  //     alert(update_notication)
+  //   });
+  //   var thisVersion = chrome.runtime.getManifest().version;
+  //   console.log("Updated from " + details.previousVersion + " to " + thisVersion + "!");
+  // }
 
   // Get CMS data
   fetch('https://tr-fi.netlify.app/api/cms')
