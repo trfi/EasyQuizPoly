@@ -36,7 +36,7 @@ async function getName() {
 }
 
 async function getQuesId(quiz_id) {
-  const url = 'http://hcm-lms.poly.edu.vn/ilias.php?ref_id='+quiz_id+'&pass=1&cmd=outUserPassDetails&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI'
+  const url = 'http://hcm-lms.poly.edu.vn/ilias.php?ref_id='+quiz_id+'&pass=0&cmd=outUserPassDetails&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI'
   const rx = /evaluation=([0-9]{6})&amp;cmd/g;
   const response = await fetch(url, {
     method: 'GET',
@@ -55,7 +55,7 @@ async function getQA(quiz_id, ques_id = []) {
   let ques = ''
   let ans = ''
   try {
-    const url = `http://hcm-lms.poly.edu.vn/ilias.php?ref_id=${quiz_id}&pass=1&evaluation=${ques_id}&cmd=outCorrectSolution&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI`
+    const url = `http://hcm-lms.poly.edu.vn/ilias.php?ref_id=${quiz_id}&pass=0&evaluation=${ques_id}&cmd=outCorrectSolution&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI`
     const response = await fetch(url, {
       method: 'GET',
     })
@@ -73,11 +73,6 @@ async function getQA(quiz_id, ques_id = []) {
 var quiz_id = /(ref_id=|tst_)([^&]+)/.exec(window.location.href)[2];
 
 async function main() {
-  try {
-    btnStart = document.querySelector('[name^="cmd"]')
-    btnStart.disabled = true
-    btnStart.setAttribute('value', 'Đang giải đáp án, đợi xíu nhé...')
-  } catch (error) {}
 
   const ques_id = await getQuesId(quiz_id)
   let listQA = []
@@ -94,9 +89,6 @@ async function main() {
   // chrome.runtime.sendMessage({listQA: listQA}, function(response) {
   //   console.log(response.farewell)
   // });
-  console.log(quiz_id)
-  console.log(ques_id)
-  console.log(listQA)
   chrome.storage.local.remove('listQA', function() {
     chrome.storage.local.set({listQA: listQA}, function() {
       console.log('set list QA');
@@ -105,10 +97,6 @@ async function main() {
 
   const name = await getName()
   writeHTML(listQA, name)
-
-  btnStart = document.querySelector('[name^="cmd"]')
-  btnStart.disabled = false;
-  btnStart.setAttribute('value', 'Đã giải xong, bắt đầu thôi!');
   
   if (window.location.href.includes('&sequence=')) window.location.reload()
 }

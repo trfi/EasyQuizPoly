@@ -3,13 +3,13 @@ Tính năng:
 - Giải đáp án quiz LMS tất cả các môn (Chỉ áp dụng cơ sở HCM)
 - Giải đáp án quiz Chính trị và Pháp luật CMS (Tất cả cơ sở)
 - Bỏ giới hạn dung lượng upload file fshare khi nộp bài
-Hướng dẫn: Vào bài quiz cần làm nhấn chuột phải chọn "Giải đáp án"
+Hướng dẫn: Bắt đầu làm bài quiz xong nhấn chuột phải chọn "Giải đáp án"
 Báo lỗi ib fb`
 const update_notication = `Nhấn follow hoặc kết bạn với tác giả để nhận cập nhật khi có bản mới nhé! Mình có nhận làm hộ quiz CMS tất cả các môn, tất cả cơ sở ib fb
 Cập nhật version 1.1.5 30/1/2021:
 - Giải quiz lms tự động chọn đáp án đúng các bạn chỉ việc nhấn next
 - Bỏ giới hạn dung lượng upload file fshare khi nộp bài (Trường chỉ cho upload file tối đa 16m)`
-const wrong_url_notication = `Vào bài quiz muốn làm rồi nhấn chuột phải chọn "Giải đáp án" nha
+const wrong_url_notication = `Bắt đầu làm bài quiz rồi nhấn chuột phải chọn "Giải đáp án" nha
 Giải quiz LMS chỉ dùng được cho cơ sở TP.HCM
 Mình có nhận làm hộ quiz CMS tất cả các môn, tất cả cơ sở ib fb`
 
