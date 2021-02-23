@@ -1,3 +1,17 @@
+function decodeEntities (str) {
+  let element = document.createElement('div');
+  if(str && typeof str === 'string') {
+    // strip script/html tags
+    str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+    str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+    element.innerHTML = str;
+    str = element.textContent;
+    element.textContent = '';
+  }
+
+  return str;
+}
+
 function writeHTML(listQA, name) {
   let html = `<table>`
   let i = 1
@@ -22,7 +36,7 @@ async function getName() {
 }
 
 async function getQuesId(quiz_id) {
-  const url = 'http://hcm-lms.poly.edu.vn/ilias.php?ref_id='+quiz_id+'&pass=0&cmd=outUserPassDetails&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI'
+  const url = 'http://hcm-lms.poly.edu.vn/ilias.php?ref_id='+quiz_id+'&pass=1&cmd=outUserPassDetails&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI'
   const rx = /evaluation=([0-9]{6})&amp;cmd/g;
   const response = await fetch(url, {
     method: 'GET',
@@ -41,13 +55,13 @@ async function getQA(quiz_id, ques_id = []) {
   let ques = ''
   let ans = ''
   try {
-    const url = `http://hcm-lms.poly.edu.vn/ilias.php?ref_id=${quiz_id}&pass=0&evaluation=${ques_id}&cmd=outCorrectSolution&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI`
+    const url = `http://hcm-lms.poly.edu.vn/ilias.php?ref_id=${quiz_id}&pass=1&evaluation=${ques_id}&cmd=outCorrectSolution&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI`
     const response = await fetch(url, {
       method: 'GET',
     })
     const data = await response.text()
     ques = patt.exec(data)[1]
-    ans = data.match(patt2)[1].replace(/<p>|<\/p>|<span>|<div class="O1">|"/gm,'')
+    ans = decodeEntities(data.match(patt2)[1].replace(/<p>|<\/p>|<span>|<div class="O1">|"/gm,''))
     return {ques, ans}
   }
   catch (err) {
@@ -60,7 +74,7 @@ var quiz_id = /(ref_id=|tst_)([^&]+)/.exec(window.location.href)[2];
 
 async function main() {
   try {
-    const btnStart = document.querySelector('[name^="cmd"]')
+    btnStart = document.querySelector('[name^="cmd"]')
     btnStart.disabled = true
     btnStart.setAttribute('value', 'Đang giải đáp án, đợi xíu nhé...')
   } catch (error) {}
@@ -80,19 +94,21 @@ async function main() {
   // chrome.runtime.sendMessage({listQA: listQA}, function(response) {
   //   console.log(response.farewell)
   // });
-
+  console.log(quiz_id)
+  console.log(ques_id)
+  console.log(listQA)
   chrome.storage.local.remove('listQA', function() {
     chrome.storage.local.set({listQA: listQA}, function() {
       console.log('set list QA');
-      try {
-        btnStart.disabled = false;
-        btnStart.setAttribute('value', 'Đã giải xong, bắt đầu thôi!');
-      } catch (error) {}
     });
   });
 
   const name = await getName()
   writeHTML(listQA, name)
+
+  btnStart = document.querySelector('[name^="cmd"]')
+  btnStart.disabled = false;
+  btnStart.setAttribute('value', 'Đã giải xong, bắt đầu thôi!');
   
   if (window.location.href.includes('&sequence=')) window.location.reload()
 }
