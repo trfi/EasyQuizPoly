@@ -1,4 +1,9 @@
-var courseName = document.querySelector('.course-name').textContent;
+try {
+  var courseName = document.querySelector('.course-name').textContent;
+} catch (error) {
+  alert(`Bắt đầu làm bài nhấn giải đáp án. CMS chỉ giải được quiz chính trị pháp luật
+  Các môn khác mình có nhận làm hộ ai cần ib fb`)
+}
 
 if (courseName) {
   chrome.storage.local.get(['cmsData'], function(data) {
@@ -14,5 +19,3 @@ if (courseName) {
     }, 500);
   });
 }
-
-else alert('Vào trang làm bài xong chọn Giải đáp án nhé bạn!')

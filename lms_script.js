@@ -35,8 +35,24 @@ async function getName() {
   return data.match(patt)[1]
 }
 
-async function getQuesId(quiz_id) {
-  const url = 'http://hcm-lms.poly.edu.vn/ilias.php?ref_id='+quiz_id+'&pass=0&cmd=outUserPassDetails&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI'
+async function getPassTimes(quiz_id) {
+  try {
+    const response = await fetch(`http://hcm-lms.poly.edu.vn/ilias.php?ref_id=${quiz_id}&cmd=outUserResultsOverview&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilrepositorygui`, {
+      method: 'GET',
+    })
+    const data = await response.text()
+    let htmlObject = document.createElement('div')
+    htmlObject.innerHTML = data
+    return parseInt(htmlObject.querySelector('.ilTableFootLight').textContent.split(' ').pop())
+  }
+  catch(error) {
+    console.error(error);
+    return 1
+  }
+}
+
+async function getQuesId(quiz_id, pass) {
+  const url = `http://hcm-lms.poly.edu.vn/ilias.php?ref_id=${quiz_id}pass=${pass}&cmd=outUserPassDetails&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI`
   const rx = /evaluation=([0-9]{6})&amp;cmd/g;
   const response = await fetch(url, {
     method: 'GET',
@@ -49,13 +65,13 @@ async function getQuesId(quiz_id) {
   return ques_id
 }
 
-async function getQA(quiz_id, ques_id = []) {
+async function getQA(quiz_id, ques_id = [], pass) {
   const patt = /ilc_PageTitle">(.*?)\s\([0-9]+\sPoint/gs
   const patt2 = /checked \/>\n\t\t\t\t\n\t\t\t<\/td>\n\t\t\t<td class="middle">\n\n\t\t\t\t(.*?)<\/span>/i
   let ques = ''
   let ans = ''
   try {
-    const url = `http://hcm-lms.poly.edu.vn/ilias.php?ref_id=${quiz_id}&pass=0&evaluation=${ques_id}&cmd=outCorrectSolution&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI`
+    const url = `http://hcm-lms.poly.edu.vn/ilias.php?ref_id=${quiz_id}&pass=${pass}&evaluation=${ques_id}&cmd=outCorrectSolution&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI`
     const response = await fetch(url, {
       method: 'GET',
     })
@@ -73,32 +89,29 @@ async function getQA(quiz_id, ques_id = []) {
 var quiz_id = /(ref_id=|tst_)([^&]+)/.exec(window.location.href)[2];
 
 async function main() {
+  let passTimes = await getPassTimes(quiz_id)
+  let ques_id = await getQuesId(quiz_id, passTimes)
+  // let listQA = []
+  // for(qid of ques_id) {
+  //   listQA.push(await getQA(quiz_id, qid, passTimes))
+  // }
 
-  const ques_id = await getQuesId(quiz_id)
-  let listQA = []
-  for(qid of ques_id) {
-    listQA.push(await getQA(quiz_id, qid))
+  const QA_promise = ques_id.map((qid) => getQA(quiz_id, qid))
+  const listQA = await Promise.all(QA_promise)
+  .catch(reason => console.log(reason))
+
+  if (listQA) {
+    chrome.storage.local.remove('listQA', function() {
+      chrome.storage.local.set({listQA: listQA}, function() {
+        console.log('set list QA')
+      })
+    })
+
+    const name = await getName()
+    writeHTML(listQA, name)
+    
+    if (window.location.href.includes('&sequence=')) window.location.reload()
   }
-  // const QA_promise = ques_id.map((qid) => {
-  //   return getQA(quiz_id, qid)
-  // })
-  // listQA = await Promise.all(listQA)
-  // .catch(reason => console.log(reason))
-  // console.log(listQA);
-
-  // chrome.runtime.sendMessage({listQA: listQA}, function(response) {
-  //   console.log(response.farewell)
-  // });
-  chrome.storage.local.remove('listQA', function() {
-    chrome.storage.local.set({listQA: listQA}, function() {
-      console.log('set list QA');
-    });
-  });
-
-  const name = await getName()
-  writeHTML(listQA, name)
-  
-  if (window.location.href.includes('&sequence=')) window.location.reload()
 }
 
 main()
