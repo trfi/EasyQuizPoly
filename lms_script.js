@@ -51,7 +51,7 @@ async function getPassTimes(quiz_id) {
   }
 }
 
-async function getQuesId(quiz_id, pass) {
+async function getQuesId(quiz_id) {
   const url = `http://hcm-lms.poly.edu.vn/ilias.php?ref_id=${quiz_id}&cmd=outUserPassDetails&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI`
   const rx = /evaluation=([0-9]{6})&amp;cmd/g;
   const response = await fetch(url, {
@@ -65,7 +65,7 @@ async function getQuesId(quiz_id, pass) {
   return ques_id
 }
 
-async function getQA(quiz_id, ques_id = [], pass) {
+async function getQA(quiz_id, ques_id = []) {
   const patt = /ilc_PageTitle">(.*?)\s\([0-9]+\sPoint/gs
   const patt2 = /checked \/>\n\t\t\t\t\n\t\t\t<\/td>\n\t\t\t<td class="middle">\n\n\t\t\t\t(.*?)<\/span>/i
   let ques = ''
@@ -90,10 +90,10 @@ async function getQA(quiz_id, ques_id = [], pass) {
 var quiz_id = /(ref_id=|tst_)([^&]+)/.exec(window.location.href)[2];
 
 async function main() {
-  let ques_id = await getQuesId(quiz_id, passTimes)
+  let ques_id = await getQuesId(quiz_id)
   // let listQA = []
   // for(qid of ques_id) {
-  //   listQA.push(await getQA(quiz_id, qid, passTimes))
+  //   listQA.push(await getQA(quiz_id, qid))
   // }
   const QA_promise = ques_id.map((qid) => getQA(quiz_id, qid))
   const listQA = await Promise.all(QA_promise)
