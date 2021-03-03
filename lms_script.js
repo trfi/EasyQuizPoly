@@ -43,16 +43,16 @@ async function getPassTimes(quiz_id) {
     const data = await response.text()
     let htmlObject = document.createElement('div')
     htmlObject.innerHTML = data
-    return parseInt(htmlObject.querySelector('.ilTableFootLight').textContent.split(' ').pop())
+    return parseInt(htmlObject.querySelector('.ilTableFootLight').textContent.split(' ').pop()) - 1
   }
   catch(error) {
     console.error(error);
-    return 1
+    return 0
   }
 }
 
 async function getQuesId(quiz_id, pass) {
-  const url = `http://hcm-lms.poly.edu.vn/ilias.php?ref_id=${quiz_id}pass=${pass}&cmd=outUserPassDetails&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI`
+  const url = `http://hcm-lms.poly.edu.vn/ilias.php?ref_id=${quiz_id}&cmd=outUserPassDetails&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI`
   const rx = /evaluation=([0-9]{6})&amp;cmd/g;
   const response = await fetch(url, {
     method: 'GET',
@@ -71,7 +71,8 @@ async function getQA(quiz_id, ques_id = [], pass) {
   let ques = ''
   let ans = ''
   try {
-    const url = `http://hcm-lms.poly.edu.vn/ilias.php?ref_id=${quiz_id}&pass=${pass}&evaluation=${ques_id}&cmd=outCorrectSolution&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI`
+    const url = `http://hcm-lms.poly.edu.vn/ilias.php?ref_id=${quiz_id}&evaluation=${ques_id}&cmd=outCorrectSolution&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI`
+    console.log(url);
     const response = await fetch(url, {
       method: 'GET',
     })
@@ -89,16 +90,14 @@ async function getQA(quiz_id, ques_id = [], pass) {
 var quiz_id = /(ref_id=|tst_)([^&]+)/.exec(window.location.href)[2];
 
 async function main() {
-  let passTimes = await getPassTimes(quiz_id)
   let ques_id = await getQuesId(quiz_id, passTimes)
   // let listQA = []
   // for(qid of ques_id) {
   //   listQA.push(await getQA(quiz_id, qid, passTimes))
   // }
-
   const QA_promise = ques_id.map((qid) => getQA(quiz_id, qid))
   const listQA = await Promise.all(QA_promise)
-  .catch(reason => console.log(reason))
+  .catch(reason => alert(`Đã có lỗi xảy ra, vui lòng thử lại hoặc liên hệ tác giả để báo lỗi: ${reason}`))
 
   if (listQA) {
     chrome.storage.local.remove('listQA', function() {
