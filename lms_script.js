@@ -94,7 +94,7 @@ async function getQA(quiz_id, ques_id = []) {
     const data = await response.text()
     const htmlObject = parseHTML(data)
     
-    ques = htmlObject.querySelector('.ilc_PageTitle').textContent.trim()
+    ques = htmlObject.querySelector('.ilc_PageTitle').textContent.trim().replace(' (1 Point)', '')
     ans = htmlObject.querySelector('.ilc_question_Standard:nth-of-type(4) > table > tbody > tr > td input:checked').parentNode.nextElementSibling.textContent.trim()
     return {ques, ans}
   }
