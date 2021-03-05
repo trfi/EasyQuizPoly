@@ -13,8 +13,9 @@ function decodeEntities (str) {
 }
 
 function parseHTML(htmltext) {
-  let htmlObject = document.createElement('div')
-  return htmlObject.innerHTML = htmltext
+  const htmlObject = document.createElement('div')
+  htmlObject.innerHTML = htmltext
+  return htmlObject
 }
 
 function writeHTML(listQA, name) {
@@ -26,7 +27,7 @@ function writeHTML(listQA, name) {
   }
   html += '</table>\n'
   chrome.runtime.sendMessage({html: html, name: name}, function(response) {
-    console.log(response.farewell)
+    console.debug(response.farewell)
   });
 }
 
@@ -46,7 +47,7 @@ async function getPassTimes(quiz_id) {
       method: 'GET',
     })
     const data = await response.text()
-    htmlObject = parseHTML(data)
+    const htmlObject = parseHTML(data)
     return parseInt(htmlObject.querySelector('.ilTableFootLight').textContent.split(' ').pop()) - 1
   }
   catch(error) {
@@ -83,8 +84,6 @@ async function getQuesId(quiz_id) {
 }
 
 async function getQA(quiz_id, ques_id = []) {
-  const patt = /ilc_PageTitle">(.*?)\s\([0-9]+\sPoint/gs
-  const patt2 = /checked \/>\n\t\t\t\t\n\t\t\t<\/td>\n\t\t\t<td class="middle">\n\n\t\t\t\t(.*?)<\/span>/i
   let ques = ''
   let ans = ''
   try {
@@ -93,11 +92,14 @@ async function getQA(quiz_id, ques_id = []) {
       method: 'GET',
     })
     const data = await response.text()
-    ques = patt.exec(data)[1]
-    ans = decodeEntities(data.match(patt2)[1].replace(/<p>|<\/p>|<span>|<div class="O1">|"/gm,''))
+    const htmlObject = parseHTML(data)
+    
+    ques = htmlObject.querySelector('.ilc_PageTitle').textContent.trim()
+    ans = htmlObject.querySelector('.ilc_question_Standard:nth-of-type(4) > table > tbody > tr > td input:checked').parentNode.nextElementSibling.textContent.trim()
     return {ques, ans}
   }
   catch (err) {
+    console.error(err);
     return {ques, ans}
   }
 }
@@ -113,7 +115,7 @@ async function addQuiz(quizzes={}) {
       body: JSON.stringify(quizzes)
     })
     const result = await response.json();
-    console.log(result.message);
+    console.debug(result.message);
   }
   catch(err) { console.error(err) }
 }
@@ -126,7 +128,6 @@ async function main() {
   // let listQA = []
   // for(qid of ques_id) { listQA.push(await getQA(quiz_id, qid)) }
   const subject = await getSubject()
-  console.log(subject)
   const QA_promise = ques_id.map((qid) => getQA(quiz_id, qid))
   const listQA = await Promise.all(QA_promise)
   .catch(reason => alert(`Đã có lỗi xảy ra, vui lòng thử lại hoặc liên hệ tác giả để báo lỗi: ${reason}`))
@@ -134,7 +135,7 @@ async function main() {
   if (listQA.length) {
     chrome.storage.local.remove('listQA', function() {
       chrome.storage.local.set({listQA: listQA}, function() {
-        console.log('set list QA')
+        console.debug('set list QA')
       })
     })
 
