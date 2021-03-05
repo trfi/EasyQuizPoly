@@ -1,4 +1,5 @@
-const install_notication = `Nhấn follow hoặc kết bạn với tác giả để nhận cập nhật khi có bản mới nhé! Mình có nhận làm hộ quiz CMS tất cả các môn, tất cả cơ sở ib fb
+const install_notication = `Nhấn follow hoặc kết bạn với tác giả để nhận cập nhật khi có bản mới nhé!
+Mình có nhận làm hộ quiz CMS tất cả các môn, tất cả cơ sở ib fb
 Tính năng:
 - Giải đáp án quiz LMS tất cả các môn (Chỉ áp dụng cơ sở HCM)
 - Giải đáp án quiz Chính trị và Pháp luật CMS (Tất cả cơ sở)

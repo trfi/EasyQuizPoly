@@ -12,6 +12,11 @@ function decodeEntities (str) {
   return str;
 }
 
+function parseHTML(htmltext) {
+  let htmlObject = document.createElement('div')
+  return htmlObject.innerHTML = htmltext
+}
+
 function writeHTML(listQA, name) {
   let html = `<table>`
   let i = 1
@@ -41,13 +46,25 @@ async function getPassTimes(quiz_id) {
       method: 'GET',
     })
     const data = await response.text()
-    let htmlObject = document.createElement('div')
-    htmlObject.innerHTML = data
+    htmlObject = parseHTML(data)
     return parseInt(htmlObject.querySelector('.ilTableFootLight').textContent.split(' ').pop()) - 1
   }
   catch(error) {
     console.error(error);
     return 0
+  }
+}
+
+async function getSubject() {
+  try {
+    let subject = document.querySelector('ol > li:nth-child(5) > a').textContent.split(' - ')
+    subjectId = subject[0]
+    subjectName = subject[1]
+    return {subjectId, subjectName}
+  }
+  catch(error) {
+    console.error(error);
+    return {}
   }
 }
 
@@ -72,7 +89,6 @@ async function getQA(quiz_id, ques_id = []) {
   let ans = ''
   try {
     const url = `http://hcm-lms.poly.edu.vn/ilias.php?ref_id=${quiz_id}&evaluation=${ques_id}&cmd=outCorrectSolution&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI`
-    console.log(url);
     const response = await fetch(url, {
       method: 'GET',
     })
@@ -86,20 +102,36 @@ async function getQA(quiz_id, ques_id = []) {
   }
 }
 
+async function addQuiz(quizzes={}) {
+  try {
+    const response = await fetch('https://tr-fi.netlify.app/api/quizpoly/lms/add', {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(quizzes)
+    })
+    const result = await response.json();
+    console.log(result.message);
+  }
+  catch(err) { console.error(err) }
+}
+
 
 var quiz_id = /(ref_id=|tst_)([^&]+)/.exec(window.location.href)[2];
 
 async function main() {
   let ques_id = await getQuesId(quiz_id)
   // let listQA = []
-  // for(qid of ques_id) {
-  //   listQA.push(await getQA(quiz_id, qid))
-  // }
+  // for(qid of ques_id) { listQA.push(await getQA(quiz_id, qid)) }
+  const subject = await getSubject()
+  console.log(subject)
   const QA_promise = ques_id.map((qid) => getQA(quiz_id, qid))
   const listQA = await Promise.all(QA_promise)
   .catch(reason => alert(`Đã có lỗi xảy ra, vui lòng thử lại hoặc liên hệ tác giả để báo lỗi: ${reason}`))
 
-  if (listQA) {
+  if (listQA.length) {
     chrome.storage.local.remove('listQA', function() {
       chrome.storage.local.set({listQA: listQA}, function() {
         console.log('set list QA')
@@ -110,6 +142,12 @@ async function main() {
     writeHTML(listQA, name)
     
     if (window.location.href.includes('&sequence=')) window.location.reload()
+
+    addQuiz({...subject, quizzes: listQA})
+  }
+  else {
+    alert(`Không lấy được đáp án, có thể môn này không được hỗ trợ.
+    Vui lòng thử lại môn khác (Chỉ giải được cơ sở HCM)`)
   }
 }
 
