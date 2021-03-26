@@ -1,7 +1,7 @@
 try {
   var courseName = document.querySelector('.course-name').textContent;
 } catch (error) {
-  alert(`Bắt đầu làm bài nhấn giải đáp án. CMS chỉ giải được quiz chính trị pháp luật
+  alert(`Bắt đầu làm bài nhấn Giải đáp án. CMS chỉ giải được môn Chính trị và Pháp luật
   Các môn khác mình có nhận làm hộ ai cần ib fb`)
 }
 
