@@ -1,3 +1,5 @@
+const server = window.location.origin
+
 function decodeEntities (str) {
   let element = document.createElement('div');
   if(str && typeof str === 'string') {
@@ -8,7 +10,6 @@ function decodeEntities (str) {
     str = element.textContent;
     element.textContent = '';
   }
-
   return str;
 }
 
@@ -28,11 +29,11 @@ function writeHTML(listQA, name) {
   html += '</table>\n'
   chrome.runtime.sendMessage({html: html, name: name}, function(response) {
     console.debug(response.farewell)
-  });
+  })
 }
 
 async function getName() {
-  const url = 'http://hcm-lms.poly.edu.vn/ilias.php?cmdClass=ilpersonalprofilegui&cmdNode=oq:or&baseClass=ilPersonalDesktopGUI'
+  const url = `${window.location.origin}/ilias.php?cmdClass=ilpersonalprofilegui&cmdNode=oq:or&baseClass=ilPersonalDesktopGUI`
   const response = await fetch(url, {
     method: 'GET',
   })
@@ -43,7 +44,7 @@ async function getName() {
 
 async function getPassTimes(quiz_id) {
   try {
-    const response = await fetch(`http://hcm-lms.poly.edu.vn/ilias.php?ref_id=${quiz_id}&cmd=outUserResultsOverview&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilrepositorygui`, {
+    const response = await fetch(`${window.location.origin}/ilias.php?ref_id=${quiz_id}&cmd=outUserResultsOverview&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilrepositorygui`, {
       method: 'GET',
     })
     const data = await response.text()
@@ -51,7 +52,7 @@ async function getPassTimes(quiz_id) {
     return parseInt(htmlObject.querySelector('.ilTableFootLight').textContent.split(' ').pop()) - 1
   }
   catch(error) {
-    console.error(error);
+    console.error(error)
     return 0
   }
 }
@@ -70,7 +71,7 @@ async function getSubject() {
 }
 
 async function getQuesId(quiz_id) {
-  const url = `http://hcm-lms.poly.edu.vn/ilias.php?ref_id=${quiz_id}&cmd=outUserPassDetails&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI`
+  const url = `${window.location.origin}/ilias.php?ref_id=${quiz_id}&cmd=outUserPassDetails&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI`
   const rx = /evaluation=([0-9]{6})&amp;cmd/g;
   const response = await fetch(url, {
     method: 'GET',
@@ -87,7 +88,7 @@ async function getQA(quiz_id, ques_id = []) {
   let ques = ''
   let ans = ''
   try {
-    const url = `http://hcm-lms.poly.edu.vn/ilias.php?ref_id=${quiz_id}&evaluation=${ques_id}&cmd=outCorrectSolution&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI`
+    const url = `${window.location.origin}/ilias.php?ref_id=${quiz_id}&evaluation=${ques_id}&cmd=outCorrectSolution&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilRepositoryGUI`
     const response = await fetch(url, {
       method: 'GET',
     })
@@ -106,7 +107,7 @@ async function getQA(quiz_id, ques_id = []) {
 
 async function addQuiz(quizzes={}) {
   try {
-    const response = await fetch('https://tr-fi.netlify.app/api/quizpoly/lms/add', {
+    const response = await fetch('https://tr-fi.netlify.app/api/quizpoly/lms', {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -147,8 +148,8 @@ async function main() {
     addQuiz({...subject, quizzes: listQA})
   }
   else {
-    alert(`Không lấy được đáp án, có thể môn này không được hỗ trợ.
-    Vui lòng thử lại môn khác (Chỉ giải được cơ sở HCM)`)
+    alert(`Không lấy được đáp án cho bài học này, có thể do giảng viên tắt chức năng xem chi tiết đáp án sau khi làm.
+    Liên hệ fb admin để biết thêm chi tiết`)
   }
 }
 
