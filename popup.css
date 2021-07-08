@@ -1,0 +1,13 @@
+body {
+  min-width: 440px;
+  min-height: 440px;
+  max-width: 440px;
+  max-height: 440px;
+  border: 1px solid black;
+}
+
+.container {
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+}

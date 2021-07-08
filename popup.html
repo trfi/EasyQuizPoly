@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Easy Quiz Poly</title>
+    <link rel="stylesheet" href="popup.css">
+    <script src="petite-vue.iife.js" defer init></script>
+    <script src="popup.js"></script>
+</head>
+<body>
+	<div class="container">
+    <button>Giải Quiz CMS</button>
+
+    <!-- anywhere on the page -->
+    <div v-scope="{ count: 0 }">
+      {{ count }}
+      <button @click="count++">inc</button>
+    </div>
+
+  </div>
+
+</body>
+</html>
