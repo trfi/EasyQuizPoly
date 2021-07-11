@@ -1,758 +1,510 @@
 [
     {
-        "ques": "Blend được tạo ra với những phương pháp nào sau đây?",
-        "ans": "sử dụng công cụ Blending hoặc lệnh Make Blend"
-    },
-    {
-        "ques": "Bạn có thể ẩn toàn bộ các bảng đang được mở, kể cả thanh công cụ, bằng cách nhấn",
-        "ans": "Tab"
-    },
-    {
-        "ques": "Bạn có thể ẩn toàn bộ các bảng đang được mở, kể cả thanh công cụ, bằng cách nhấn phím tắt nào sau đây?",
-        "ans": "Tab"
-    },
-    {
-        "ques": "Bảng Color cũng sử dụng kết hợp được với bảng Gradient, đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Bảng nào quản lý thư viện brush?",
-        "ans": "Brushes"
-    },
-    {
-        "ques": "Bảng nào quản lý được pattern (chất liệu)?",
-        "ans": "Pattern Option"
-    },
-    {
-        "ques": "Bảng nào sau đây giúp cắt trích hình ảnh chồng chéo?",
-        "ans": "pathfinder"
-    },
-    {
-        "ques": "Chỉ có thể vẽ trên một mặt của môi trường phối cảnh. Đúng hay sai?",
+        "ques": "Bitmap là dạng hình ảnh graphic có độ phân giải cao nhất và có thể phóng to tuỳ ",
         "ans": "Sai"
     },
     {
-        "ques": "Crop mark được hiển thị trên bảng nào, để điều chỉnh?",
-        "ans": "appearance"
-    },
-    {
-        "ques": "Cyan là màu cơ bản trong hệ màu nào sau đây?",
-        "ans": "hệ màu subtractive"
-    },
-    {
-        "ques": "Các màu Red, Green, Blue khi kết hợp với nhau sẽ tạo ra ánh sáng gì?",
-        "ans": "ánh sáng trắng"
-    },
-    {
-        "ques": "Có  bao nhiêu thư viện brush chính?",
-        "ans": "5"
-    },
-    {
-        "ques": "Có bao nhiêu kiểu gradient?",
-        "ans": "2"
-    },
-    {
-        "ques": "Có bao nhiêu kiểu tô màu gradient?",
-        "ans": "2"
-    },
-    {
-        "ques": "Có bao nhiêu phương pháp thực hiện thiết kế theo dạng phối cảnh?",
-        "ans": "3"
-    },
-    {
-        "ques": "Có bao nhiêu thư viện brush chính?",
-        "ans": "5"
-    },
-    {
-        "ques": "Có bao nhiêu tuỳ chọn để thực hiện Envelopes?",
-        "ans": "3"
-    },
-    {
-        "ques": "Có mấy cách sao chép đối tượng trên Illustrator",
-        "ans": "4"
-    },
-    {
-        "ques": "Có thể chuyển đổi hình ảnh dạng bitmap thành dạng brush được không?",
-        "ans": "Có"
-    },
-    {
-        "ques": "Có thể hiển thị các bảng trong Illustrator thông qua menu nào sau đây?",
-        "ans": "Window"
-    },
-    {
-        "ques": "Có thể sử dụng lệnh Make Slice để tạo lắt cắt phù hợp với khung hình. ĐÚng hay s",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Có thể sử dụng lệnh Make Slice để tạo lắt cắt phù hợp với khung hình. ĐÚng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Có thể thay đổi kích thước của brush thông qua phím tắt nào?",
-        "ans": "phím [, ]"
-    },
-    {
-        "ques": "Có thể thay đổi kích thước file vector graphic mà không ảnh hưởng tới điều gì sa",
-        "ans": "chất lượng file"
-    },
-    {
-        "ques": "Có thể thay đổi kích thước file vector graphic mà không ảnh hưởng tới điều gì sau đây?",
-        "ans": "chất lượng file"
-    },
-    {
-        "ques": "Có thể vẽ hình thông qua công cụ nào sau đây?",
-        "ans": "Pen"
-    },
-    {
-        "ques": "Có thể xoay đối tượng bằng tay thông qua phần tuỳ chọn nào trên hộp thoại 3D Ext",
-        "ans": "Rotation Cube"
-    },
-    {
-        "ques": "Có thể xoay đối tượng bằng tay thông qua phần tuỳ chọn nào trên hộp thoại 3D Extrude &amp; Bevel?",
-        "ans": "Rotation Cube"
-    },
-    {
-        "ques": "Có thể định nghĩa stroke (đường viền) dạng đường nét đứt thông qua bảng nào sau ",
-        "ans": "Stroke"
-    },
-    {
-        "ques": "Có thể định nghĩa stroke (đường viền) dạng đường nét đứt thông qua bảng nào sau đây?",
-        "ans": "Stroke"
-    },
-    {
-        "ques": "Công cụ Direct Selection giúp chọn và di chuyển - thay đổi vị trí - hình dáng đường path. Đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Công cụ Direct Selection giúp cầm và di chuyển đường path. Đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Công cụ Live Paint Bucket sử dụng hai kiểu đối tượng. ĐÚng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Công cụ nào cho phép chỉnh sửa đường path của stroke?",
-        "ans": "width"
-    },
-    {
-        "ques": "Công cụ nào cho phép nhập văn bản bên trong một đối tượng",
-        "ans": "Area type"
-    },
-    {
-        "ques": "Công cụ nào có thể di chuyển đối tượng trong môi trường phối cảnh Perspective Grid?",
-        "ans": "perspective selection"
-    },
-    {
-        "ques": "Công cụ nào có thể nhanh chóng áp dụng thuộc tính của một đối tượng cho đối tượn",
-        "ans": "Eyedropper"
-    },
-    {
-        "ques": "Công cụ nào có thể nhanh chóng áp dụng thuộc tính của một đối tượng cho đối tượng khác?",
-        "ans": "Eyedropper"
-    },
-    {
-        "ques": "Công cụ nào giúp nhập chữ theo đường path?",
-        "ans": "Type on a path"
-    },
-    {
-        "ques": "Công cụ nào giúp tạo nhiều symbol instance một cách nhanh chóng?",
-        "ans": "Symbol Sprayer"
-    },
-    {
-        "ques": "Công cụ nào sau đây có thể tác động tới graph?",
-        "ans": "group selection"
-    },
-    {
-        "ques": "Công cụ nào sau đây giúp ta thực hiện vẽ theo dạng phối cảnh?",
-        "ans": "perspective grid"
-    },
-    {
-        "ques": "Công cụ nào trong Illustrator cho phép cắt hình ảnh thành nhiều mảnh nhỏ, để phục vụ cho web?",
-        "ans": "slice"
-    },
-    {
-        "ques": "Công cụ nào trong nhóm công cụ Pen có tác dụng điều chỉnh thanh điều hướng?",
-        "ans": "Convert Anchor Point"
-    },
-    {
-        "ques": "Công cụ nào được sử dụng để tạo ra hiệu quả như nét vẽ phác thảo?",
-        "ans": "paintbrush"
-    },
-    {
-        "ques": "DPI viết tắt bởi?",
-        "ans": "dots per inch"
-    },
-    {
-        "ques": "Dữ liệu sử dụng để vẽ graph được lưu trữ tại đâu?",
-        "ans": "trong cửa sổ Graph Data"
-    },
-    {
-        "ques": "Envelopes được sử dụng để biến đổi layer khởi tạo. Đúng hay sai?",
+        "ques": "Bạn không thể cầm, kéo, thả thanh công cụ ra khỏi vị trí mặc định bên trái màn hình. Đúng hay sai?",
         "ans": "Sai"
     },
     {
-        "ques": "File định dạng pdf có thể hiển thị được crop mark. Đúng hay sai?",
+        "ques": "Bảng Layer trên Illustrator có cách quản lý layer tương tự như Illustrator, đúng",
         "ans": "Đúng"
     },
     {
-        "ques": "Giá trị nào có thể được áp dụng cho từng điểm mesh?",
-        "ans": "Opacity"
+        "ques": "Bảng Pathfinder có thể làm việc được với thành phần nào sau đây?",
+        "ans": "path"
     },
     {
-        "ques": "Giá trị nào xác định mức độ thay đổi của đối tượng 2D khi chuyển thành đối tượng",
-        "ans": "Extrude Depth"
-    },
-    {
-        "ques": "Giá trị nào xác định mức độ thay đổi của đối tượng 2D khi chuyển thành đối tượng 3D?",
-        "ans": "Extrude Depth"
-    },
-    {
-        "ques": "Graph là dạng đối tượng gì sau đây?",
-        "ans": "đối tượng nhóm"
-    },
-    {
-        "ques": "Hình ảnh Illustrator sau khi Rasterize có thể được gọi là hình ảnh dạng bimap. đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Hệ màu CMYK lớn hơn nhiều so với hệ màu RGB. Đúng hay sai?",
-        "ans": "Sai"
-    },
-    {
-        "ques": "Hệ màu CMYK thường được sử dụng trong in ấn công nghiệp, đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Illustrator hỗ trợ vẽ minh hoạ theo dạng số liệu, ví dụ như dạng biểu đồ. Đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Illustrator không cho phép xuất file dưới định dạng pdf. Đúng hay sai?",
-        "ans": "Sai"
-    },
-    {
-        "ques": "Illustrator không thể tạo ra đối tượng 3D, đúng hay sai?",
-        "ans": "Sai"
-    },
-    {
-        "ques": "Khi dữ liệu được tạo bởi Excel, muốn nhập vào Illustrator thì bắt buộc phải được lưu dưới dạng gì?",
-        "ans": "text file"
-    },
-    {
-        "ques": "Khi khởi tạo đối tượng Mesh, điều gì sẽ xảy ra?",
-        "ans": "thêm nhiều ô lưới sẽ xuất hiện"
-    },
-    {
-        "ques": "Khi kéo symbol ra khỏi bảng Symbol để sử dụng Cần thiết phải thực hiện thao tác nào sau đây?",
-        "ans": "break link"
-    },
-    {
-        "ques": "Khi làm việc với Envelopes, đối tượng nào cần thiết phải được khởi tạo?",
-        "ans": "hình khối để tạo khung biến dạng"
-    },
-    {
-        "ques": "Khi lựa chọn hiển thị bảng thông qua menu Window, bảng sẽ được hiển thị theo dạng đầy đủ, mở rộng. Đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Khi số lượng các đối tượng blend nhiều thì sẽ giúp hiệu quả gì sau đây?",
-        "ans": "sẽ tạo ra hiệu ứng \"smooth\" (mượt) hơn khi đối tượng blend được hoàn thiện"
-    },
-    {
-        "ques": "Khi sử dụng brush Scatter, muốn tạo khoảng cố định hay ngẫu nhiên của đối tượng, phải sử dụng trên hộp thoại nào?",
-        "ans": "Brush Option"
-    },
-    {
-        "ques": "Khi sử dụng các công cụ : Rotate ; Scale ; Shear , cần kết hợp phím nào để hiển thị các tuỳ chọn",
-        "ans": "Alt"
-    },
-    {
-        "ques": "Khi sử dụng công cụ Zoom, muốn thu nhỏ tầm nhìn của vùng hình ảnh, phải sử dụng cùng phím tắt nào sau đây?",
-        "ans": "Alt"
-    },
-    {
-        "ques": "Khi sử dụng công cụ Zoom, sau khi phóng to tầm hình của hình ảnh, muốn di chuyển tới vùng hình ảnh cần làm việc, phải sử dụng cùng phím nào sau đây?",
-        "ans": "Spacebar (dấu cách)"
-    },
-    {
-        "ques": "Khi sử dụng graph, dữ liệu có thể được nhập từ các chương trình khác. Đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Khi sử dụng lệnh Image Trace có thể kết hợp với bảng nào để tạo thêm hiệu quả cho hình ảnh được trace?",
-        "ans": "Image Trace"
-    },
-    {
-        "ques": "Khi thiết kế dạng graph tuỳ chỉnh, chỉ đối tượng nào mới có thể sử dụng được?",
-        "ans": "đối tượng vector"
-    },
-    {
-        "ques": "Khi thực hiện vẽ trong chế độ Perspective Grid, các công cụ tạo hình cơ bản sẽ v",
-        "ans": "vẽ trong môi trường phối cảnh"
-    },
-    {
-        "ques": "Khi áp dụng Extrude & Bevel thì yếu tố nào sau đây được tự động áp dụng?",
-        "ans": "lighting và shading"
-    },
-    {
-        "ques": "Khi áp dụng Extrude &amp; Bevel thì yếu tố nào sau đây được tự động áp dụng?",
-        "ans": "lighting và shading"
-    },
-    {
-        "ques": "Khi đã chuyển đổi đối tượng thành đối tượng mesh ta có thể xoá các điểm neo để đối tượng trở về hình",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Khi đã chuyển đổi đối tượng thành đối tượng mesh ta có thể xoá các điểm neo để đối tượng trở về hình thái ban đầu, đúng hay sai ?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Khi định nghĩa stroke dạng đường nét đứt thì không thể định nghĩa độ dài của các",
-        "ans": "Sai"
-    },
-    {
-        "ques": "Khi định nghĩa stroke dạng đường nét đứt thì không thể định nghĩa độ dài của các đoạn nét đứt. Đúng hay sai?",
-        "ans": "Sai"
-    },
-    {
-        "ques": "Không thể sử dụng công cụ selection để lựa chọn Crop mark, đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Không thể thay đổi được cách phối cảnh theo các điểm tụ khác nhau với công cụ Perspective Grid. Đúng hay sai?",
-        "ans": "Sai"
-    },
-    {
-        "ques": "Không thể thay đổi được hình ảnh minh hoạ của các bề mặt khối 3D. Đúng hay sai?",
-        "ans": "Sai"
-    },
-    {
-        "ques": "Không thể thay đổi được tuỳ chọn Blend, đúng hay sai?",
-        "ans": "Sai"
-    },
-    {
-        "ques": "Làm cách nào để hiển thị các công cụ bị ẩn trong Illustrator?",
-        "ans": "Nhấn và giữ phím trái chuột, sau đó lựa chọn"
-    },
-    {
-        "ques": "Làm cách nào để hiển thị các công cụ còn ẩn bên trong của một công cụ nhóm trên Illustrator?",
-        "ans": "Nhấn và giữ phím trái chuột, sau đó lựa chọn"
-    },
-    {
-        "ques": "Lệnh Create Gradient Mesh giúp khởi tạo thành phần nào sau đây của lưới?",
-        "ans": "hàng và cột"
-    },
-    {
-        "ques": "Lệnh Move có thể tạo ra pattern dạng đơn giản. Đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Lệnh nào sau đây giúp chuyển đổi hình ảnh từ dạng bitmap thành dạng vector?",
-        "ans": "Image Trace"
-    },
-    {
-        "ques": "Lệnh nào sau đây sẽ hợp nhất 2 điểm neo?",
-        "ans": "Join"
-    },
-    {
-        "ques": "Menu Bevel cung cấp bao nhiêu hình dạng sẵn?",
-        "ans": "10"
-    },
-    {
-        "ques": "Menu Bevel trong hộp thoại 3D Extrude & Bevel có thể được sử dụng để áp dụng",
-        "ans": "áp dụng cho các cạnh đối tượng"
-    },
-    {
-        "ques": "Menu Bevel trong hộp thoại 3D Extrude &amp; Bevel có thể được sử dụng để áp dụng cho điều gì?",
-        "ans": "áp dụng cho các cạnh đối tượng"
-    },
-    {
-        "ques": "Màu gradient được tạo ra từ phương pháp nào?",
-        "ans": "Từ phương pháp trộn các màu sắc khác lại với nhau"
-    },
-    {
-        "ques": "Nhóm công cụ con có thể được tách ra thành một bảng riêng, đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Pattern chỉ được áp dụng cho một đối tượng duy nhất. Đúng hay sai?",
-        "ans": "Sai"
-    },
-    {
-        "ques": "Pattern có thể được lưu trong bảng nào sau đây?",
-        "ans": "Swatches"
-    },
-    {
-        "ques": "Phát biểu  Mỗi một công cụ sẽ có thanh Control riêng  điều này đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Phát biểu \"Mỗi một công cụ sẽ có thanh Control riêng\" điều này đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Quang phổ khả kiến chia làm mấy loại màu sắc?",
-        "ans": "7"
-    },
-    {
-        "ques": "Radar không phải là một kiểu graph trong Illustrator. Đúng hay sai?",
-        "ans": "Sai"
-    },
-    {
-        "ques": "Sau khi sử dụng lệnh Image Trace, cần thực hiện lựa chọn thêm tuỳ chọn nào để hình ảnh xuất hiện điểm neo và đường path?",
-        "ans": "Expand"
-    },
-    {
-        "ques": "Shading bao gồm bao nhiêu kiểu bề mặt?",
-        "ans": "3"
-    },
-    {
-        "ques": "Symbol có thể bao gồm symbol khác. Đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Symbol có thể được tạo ra từ đối tượng nào sau đây",
-        "ans": "Text"
-    },
-    {
-        "ques": "Symbol được lưu trữ trên bảng Pattern, đúng hay sai?",
-        "ans": "Sai"
-    },
-    {
-        "ques": "Số lượng pixel trong một inch hình ảnh được gọi là?",
-        "ans": "độ phân giải"
-    },
-    {
-        "ques": "Ta có thể bo trơn  hoặc vát góc viền của một đối tượng",
-        "ans": "Có"
-    },
-    {
-        "ques": "Ta có thể bo trơn &nbsp;hoặc vát góc viền của một đối tượng",
-        "ans": "Có"
-    },
-    {
-        "ques": "Ta có thể thêm một điểm neo ( Anchor point ) trên đối tượng vẽ bằng cách :",
-        "ans": "Tất cả đều sai"
-    },
-    {
-        "ques": "Ta có thể tuỳ chọn một trong các kiểu ( type) khi sử dụng công cụ  graph. Đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Ta có thể tuỳ chọn một trong các kiểu ( type) khi sử dụng công cụ &nbsp;graph. Đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Ta có thể tách viền và nền của một đối tượng thành 2 thành phần độc lập, đúng hay sai ?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Ta có thể tạo tài liệu có nhiều bản vẽ và đồng thời có thể sắp xếp các bản vẽ này ?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Ta có thể đặt các đối tượng đã Blend theo một Path có sẵn ?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Thao tác nhấn đúp chuột lên công cụ Zoom trên thanh công cụ, giúp thực hiện điều",
-        "ans": "Xem file  với kích thước thật (100%)"
-    },
-    {
-        "ques": "Thao tác nhấn đúp chuột lên công cụ Zoom trên thanh công cụ, giúp thực hiện điều gì?",
-        "ans": "Xem file  với kích thước thật (100%)"
-    },
-    {
-        "ques": "Thao tác sử dụng phím Spacebar (dấu cách) để di chuyển tới vùng cần làm việc tươ",
-        "ans": "Hand"
-    },
-    {
-        "ques": "Thao tác sử dụng phím Spacebar (dấu cách) để di chuyển tới vùng cần làm việc tương đương với việc sử dụng công cụ nào?",
-        "ans": "Hand"
-    },
-    {
-        "ques": "Thao tác thay đổi hướng điểm mesh sẽ tác động lên điều gì sau đây?",
-        "ans": "thay đổi hình dạng của lưới"
-    },
-    {
-        "ques": "Theo mặc định pattern sẽ được tô từ vùng nào?",
-        "ans": "Được tô từ vùng dưới bên trái của artwork"
-    },
-    {
-        "ques": "Theo mặc định, công cụ Perspective Grid sẽ phối cảnh theo nguyên lý 2 điểm tụ. Đ",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Theo mặc định, công cụ Perspective Grid sẽ phối cảnh theo nguyên lý 2 điểm tụ. ĐÚng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Thiết kế pattern nhằm mục đích nào sau đây?",
-        "ans": "tô chất liệu cho đối tượng"
-    },
-    {
-        "ques": "Thành phần nào  được sử dụng để thiết kế pattern?",
-        "ans": "Màu sắc"
-    },
-    {
-        "ques": "Thành phần nào được sinh ra bởi công cụ Pen?",
-        "ans": "Điểm neo"
-    },
-    {
-        "ques": "Trong Illustrator, dữ liệu có thể được biểu thị bởi bao nhiêu kiểu?",
-        "ans": "3"
-    },
-    {
-        "ques": "Trong hộp thoại 3D Extrude & Bevel Option, tuỳ chọn Caps giúp đối tượng được",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Trong hộp thoại 3D Extrude &amp; Bevel Option, tuỳ chọn Caps giúp đối tượng được hiển thị theo dạng solid hay hollow. Đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Trên Illustrator ta có thể áp dụng các tổ hợp phím dùng điều khiển các các chức năng quản lý vùng là",
-        "ans": "đúng"
-    },
-    {
-        "ques": "Trên Illustrator ta có thể áp dụng các tổ hợp phím dùng điều khiển các các chức năng quản lý vùng làm việc như di chuyển đến vùng hình ảnh, phóng to thu nhỏ ... tương tự Photoshop ?",
-        "ans": "đúng"
-    },
-    {
-        "ques": "Trên bảng Gradient, có thể thêm đươc điểm dừng màu hay không?",
-        "ans": "Có"
-    },
-    {
-        "ques": "Trên bảng Gradient, không thể thay đổi được opacity (độ mờ) của màu, đúng hay sa",
-        "ans": "Sai"
-    },
-    {
-        "ques": "Trên hộp thoại Move ta có thể nhân bản đối tượng, điều này đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Trên hộp thoại tuỳ chọn Graph Type, có thể đặt thêm điều gì cho graph?",
-        "ans": "Style"
-    },
-    {
-        "ques": "Trên đường path, không thể chèn thêm được điểm neo. Đúng hay sai?",
-        "ans": "Sai"
-    },
-    {
-        "ques": "Tuỳ chọn Covert to CMYK có thể được sử dụng thông qua menu Edit &gt; Edit Colors. Đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Tuỳ chọn Covert to CMYK có thể được sử dụng thông qua menu Edit > Edit Color",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Tuỳ chọn nào sau đây điều khiển độ mượt của shading?",
-        "ans": "blend steps"
-    },
-    {
-        "ques": "Tuỳ chọn nào được sử dụng trong quá trình thay đổi hình ảnh hiển thị trên các mặ",
-        "ans": "map art"
-    },
-    {
-        "ques": "Tuỳ chọn nào được sử dụng trong quá trình thay đổi hình ảnh hiển thị trên các mặt của đối tượng 3D?",
-        "ans": "map art"
-    },
-    {
-        "ques": "Tại bảng điều khiển Appearance ta có thể hiệu chỉnh",
-        "ans": "tất cả đúng"
-    },
-    {
-        "ques": "Tại bảng điều khiển Appearance ta có thể hiệu chỉnh các thuộc tính của đối tượng như :",
-        "ans": "tất cả đúng"
-    },
-    {
-        "ques": "Tại mỗi điểm neo sẽ có thành phần nào sau đây?",
-        "ans": "Thanh điều hướng"
-    },
-    {
-        "ques": "Tạo gradient thông qua bảng nào?",
-        "ans": "Sử dụng bảng Gradient kết hợp với bảng Swatches"
-    },
-    {
-        "ques": "Tổ hợp phím Ctrl : cho phép ẩn / hiện đường canh ( guide )",
-        "ans": "Sai"
-    },
-    {
-        "ques": "Tổ phím Ctrl D được sử dụng trong trường hợp nào ?",
-        "ans": "Lặp lại một thao tác biến đổi tượng"
-    },
-    {
-        "ques": "Tổ phím Ctrl ] &nbsp;cho phép&nbsp;",
-        "ans": "Xếp đối tượng lên trên một vị trí trong thứ tự xếp chồng"
-    },
-    {
-        "ques": "Tổ phím Ctrl ] hoặc [ cho phép :",
-        "ans": "Xếp đối tượng lên trên một vị trí trong thứ tự xếp chồng"
-    },
-    {
-        "ques": "Vector graphic có độ phân giải như thế nào?",
-        "ans": "độ phân giải độc lập"
-    },
-    {
-        "ques": "Với một đối tượng đang được chọn, chúng sẽ thể hiện trên layer dưới một kí hiệu có hình dạng :",
-        "ans": "Hình vuông"
-    },
-    {
-        "ques": "Với tuỳ chọn Make with Top Object, lệnh Envelopes sẽ ưu tiên đối tượng trên cùng",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Với tuỳ chọn Make with Top Object, lệnh Envelopes sẽ ưu tiên đối tượng trên cùng. Đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Với đường canh ( guide ) ta có thể xoay chúng từ 0 đến 360 độ đồng thời có thể sao chép ?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Yếu tố nào giúp xác định chính xác vùng cần crop?",
-        "ans": "show ruler"
-    },
-    {
-        "ques": "có thể hiển thị hộp thoại Graph Design thông qua menu nào sau đây?",
-        "ans": "Object > Graph > Design"
-    },
-    {
-        "ques": "có thể tạo ra blend cho đường path hay không?",
-        "ans": "Có"
-    },
-    {
-        "ques": "công cụ nào tạo ra đường khép kín khi tô đối tượng?",
-        "ans": "blodbrush"
-    },
-    {
-        "ques": "công cụ paintbrush cung cấp cách vẽ dạng freehand, đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "thư viện Brush nào áp dụng đường viền như một nét vẽ thư pháp?",
-        "ans": "Caligraphic"
-    },
-    {
-        "ques": "thư viện brush nào tạo tính ngẫu nhiên trên sản phẩm?",
-        "ans": "Scatter"
-    },
-    {
-        "ques": "Điều gì xảy ra khi ánh sáng chiếu vào đối tượng?",
-        "ans": "hiện tượng hấp thụ, khi ánh sáng không được phản chiếu lại"
-    },
-    {
-        "ques": "Điểm Mesh có yếu tố nào giống như điểm neo?",
-        "ans": "thanh điều hướng"
-    },
-    {
-        "ques": "Điểm Mesh làm việc giống như điểm neo. Đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Đâu là không gian làm việc mặc định của Illustrator CS6?",
-        "ans": "Essential"
-    },
-    {
-        "ques": "Đâu là một kiểu graph trong Illustrator?",
-        "ans": "Area"
-    },
-    {
-        "ques": "Đâu là một thuộc tính của đối tượng?",
-        "ans": "Stroke"
-    },
-    {
-        "ques": "Đâu là một tiện ích của symbol?",
-        "ans": "Được tái sử dụng trong các đối tương khác"
-    },
-    {
-        "ques": "Đâu là một trong số những kiểu bề mặt của shading?",
-        "ans": "wireframe"
-    },
-    {
-        "ques": "Đâu là một trong số tuỳ chọn với lệnh Envelopes Distort?",
-        "ans": "Make with Mesh"
-    },
-    {
-        "ques": "Đâu là thuộc tính của đối tượng Typographic?",
-        "ans": "Font"
-    },
-    {
-        "ques": "Đâu là tác dụng đúng của công cụ Mesh?",
-        "ans": "có thể thay đổi màu sắc của đối tượng theo nhiều hướng khác nhau"
-    },
-    {
-        "ques": "Để chuyển đổi giữa chế độ xem Outline và chế độ xem Normal, sử dụng tổ hợp phím ",
-        "ans": "Ctrl + Y"
-    },
-    {
-        "ques": "Để chuyển đổi giữa chế độ xem Outline và chế độ xem Normal, sử dụng tổ hợp phím tắt nào sau đây?",
-        "ans": "Ctrl + Y"
-    },
-    {
-        "ques": "Để hiển thị hộp thoại Live Paint Bucket Option, nhấn đúp vào công cụ này trên th",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Để hiển thị hộp thoại Live Paint Bucket Option, nhấn đúp vào công cụ này trên thanh công cụ. Đúng hay sai?",
-        "ans": "Đúng"
-    },
-    {
-        "ques": "Để hiển thị hộp thoại tuỳ chọn Graph Type, cần sử dụng thao tác nào sau đây?",
-        "ans": "lựa chọn nhấn đúp vào công cụ graph"
-    },
-    {
-        "ques": "Để thay đổi đơn vị đo ta có thể",
-        "ans": "Kích phải chuột trên thanh thước sau đó chọn đơn vị đo cần đổi"
-    },
-    {
-        "ques": "Để truy cập nhanh vào bảng lệnh Move ta sẽ chọn đối tượng sau đó",
-        "ans": "Nhấp đôi vào công cụ Move"
-    },
-    {
-        "ques": "Để tô màu gradient cho chữ, cần phải thực hiện điều gì?",
-        "ans": "Chuyển ký tự chữ thành dạng vector bình thường, thông qua menu Type > Create Outlines"
-    },
-    {
-        "ques": "Để xoá bỏ đường canh ( guide ) ta có thể :",
-        "ans": "Quét chuột chọn đường canh / ấn Delete"
-    },
-    {
-        "ques": "Để xoá bỏ đường canh ta có thể :",
-        "ans": "Quét chuột chọn đường canh / ấn Delete"
-    },
-    {
-        "ques": "Để định dạng : tracking ; kerning ; leading văn bản, sử dụng bảng lệnh nào ?",
+        "ques": "Bảng nào có thể đặt lại font, kích thước font sau đây?",
         "ans": "Character"
     },
     {
-        "ques": "Để ần / hiện Grid ta có thể sử dụng :",
-        "ans": "tất cả đều sai"
+        "ques": "Bảng nào hiển thị toàn bộ thông tin về tệp tin hiện đang mở và các đối tượng đan",
+        "ans": "Infor"
     },
     {
-        "ques": "Đối tượng 3D xoay quanh bao nhiêu trục?",
-        "ans": "3"
+        "ques": "Chế độ hoà trộn trong InDesign không áp dụng được khi cả 2 đối tượng chồng nhau ",
+        "ans": "Sai"
     },
     {
-        "ques": "Đối tượng mesh phức tạp có thể ảnh hưởng tới điều gì sau đây?",
-        "ans": "bộ nhớ của máy tính"
+        "ques": "Chế độ xem nào cho phép xem toàn bộ tệp tin dạng toàn màn hình với background màu đen?",
+        "ans": "Presentation mode"
     },
     {
-        "ques": "Đối tượng mặt nạ nhất thiết phải ở phía trước đối tượng bị che ?",
+        "ques": "Các thành phần được thiết kế trên trang master được gọi là?",
+        "ans": "Master item"
+    },
+    {
+        "ques": "Các tuỳ chọn trên bảng Pathfinder của InDesign hoàn toàn giống với Illustrator, ",
         "ans": "Đúng"
     },
     {
-        "ques": "Đối tượng nào không thể tạo mesh trực tiếp sau đây?",
-        "ans": "Text"
+        "ques": "Cách sắp xếp cửa sổ và các bảng trong chương trình InDesign được gọi là gì?",
+        "ans": "Không gian làm việc"
     },
     {
-        "ques": "Độ phân giải chuẩn cho hình ảnh dạng bimap trên web là bao nhiêu?",
-        "ans": "72dpi"
+        "ques": "Có 2 kiểu  gradient trong InDesign, đúng hay sai?",
+        "ans": "Đúng"
     },
     {
-        "ques": "Độ phân giải còn được tính bằng đơn vị nào sau đây?",
-        "ans": "ppi"
+        "ques": "Có bao nhiêu kiểu hiển thị khi Place hình ảnh dạng vector vào InDesign?",
+        "ans": "3"
+    },
+    {
+        "ques": "Có thẻ lựa chọn lệnh Table of Content thông qua menu nào sau đây?",
+        "ans": "Layout"
+    },
+    {
+        "ques": "Có thể biến đổi hiệu ứng cho các góc của hình khối thông qua lệnh nào sau đây?",
+        "ans": "Live Corner Effects"
+    },
+    {
+        "ques": "Có thể chỉnh sửa màu gradient thông qua bảng nào sau đây?",
+        "ans": "Gradient"
+    },
+    {
+        "ques": "Có thể căn chỉnh các đối tượng trên vùng làm việc thông qua bảng nào sau đây?",
+        "ans": "Align"
+    },
+    {
+        "ques": "Có thể cầm kéo thả mẫu màu có trong bảng Swatches để tô màu cho đối tượng, đúng ",
+        "ans": "Đúng"
+    },
+    {
+        "ques": "Có thể ghi đè các master item trên những trang trong tệp, đúng hay sai?",
+        "ans": "Đúng"
+    },
+    {
+        "ques": "Có thể loạ bỏ màu cho đường viền thông qua bảng nào sau đây?",
+        "ans": "Swatches"
+    },
+    {
+        "ques": "Có thể loại bỏ màu đường viền (stroke) của đối tượng thông qua bảng nào sau đây?",
+        "ans": "Swatches"
+    },
+    {
+        "ques": "Có thể lưu dạng uốn cong văn bản thành dạng style được, đúng hay sai?",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Có thể thay đổi giữa các chế độ hiển thị Normal mode và Preview Screen mode thông qua phím W. Đúng hay sai?",
+        "ans": "Đúng"
+    },
+    {
+        "ques": "Có thể tìm thấy lệnh Bulleted & Numbered Lists thông qua menu nào sau đây?",
+        "ans": "Type"
+    },
+    {
+        "ques": "Có thể tạo ra màu tint thông qua lệnh nào của bảng Swatches?",
+        "ans": "New Color Swatch"
+    },
+    {
+        "ques": "Có thể tạo được màu Spot thông qua tuỳ chọn nào của lệnh New Color Swatch?",
+        "ans": "Color Type"
+    },
+    {
+        "ques": "Có thể uốn cong đoạn văn bản xung quanh hình ảnh thông qua bảng nào sau đây?",
+        "ans": "Text Wrap"
+    },
+    {
+        "ques": "Có thể áp dụng trang master cho trang con trong tệp thông qua lệnh nào sau đây?",
+        "ans": "Apply Master to Pages"
+    },
+    {
+        "ques": "Có thể điều chỉnh độ dày của đường viền thông qua bảng nào sau đây?",
+        "ans": "Stroke"
+    },
+    {
+        "ques": "Có thể đánh số trang thông qua lệnh nào trên bảng Page?",
+        "ans": "Numbering and Section Options"
+    },
+    {
+        "ques": "Có thể định kiểu (style) cho một ký tự thông qua bảng nào sau đây?",
+        "ans": "Character Style"
+    },
+    {
+        "ques": "Công cụ Gradient Feather có thể tác động lên đường viền vật thể, làm mềm đường viền. Đúng hay sai?",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Công cụ Gradient có thể thay đổi được hướng gradient, đúng hay sai?",
+        "ans": "Đúng"
+    },
+    {
+        "ques": "Công cụ nào giúp tạo độ mịn khi chuyển màu trong màu gradient?",
+        "ans": "Gradient Feather"
+    },
+    {
+        "ques": "Công cụ nào sau đây có thể điều chỉnh được diện tích gradient?",
+        "ans": "Gradient"
+    },
+    {
+        "ques": "Công cụ nào sau đây có thể điều chỉnh được khoảng cách trống giữa các đối tượng?",
+        "ans": "Gap"
+    },
+    {
+        "ques": "Công cụ nào sau đây giúp thực hiện thao tác nhập chữ trên đường path?",
+        "ans": "Type on path"
+    },
+    {
+        "ques": "Công cụ nào sau đây giúp điều chỉnh lại hướng của thanh điều hướng?",
+        "ans": "Convert anchor point"
+    },
+    {
+        "ques": "Hiệu ứng cũng có thể được lưu lại dưới định dạng kiểu (style) của đối tượng, đún",
+        "ans": "Đúng"
+    },
+    {
+        "ques": "InDesign chỉ cho phép làm việc với một file có các trang cùng kích thước, đúng h",
+        "ans": "Sai"
+    },
+    {
+        "ques": "InDesign chỉ làm việc được với hình ảnh dạng bitmap, đúng hay sai?",
+        "ans": "Sai"
+    },
+    {
+        "ques": "InDesign coi Table giống như dạng text, đúng hay sai?",
+        "ans": "Đúng"
+    },
+    {
+        "ques": "InDesign có cho phép làm việc với file có định dạng .psd không?",
+        "ans": "Có"
+    },
+    {
+        "ques": "InDesign có thể tạo file có kích thước phù hợp với thiết bị nào sau đây?",
+        "ans": "iPad"
+    },
+    {
+        "ques": "InDesign không cho phép Place nhiều hình ảnh, đúng hay sai?",
+        "ans": "Sai"
+    },
+    {
+        "ques": "InDesign không cho phép nhập ký tự có dấu mũ, đúng hay sai?",
+        "ans": "Sai"
+    },
+    {
+        "ques": "InDesign không làm việc được với hệ màu RGB, đúng hay sai?",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Khi chỉnh sửa màu gradient, tất cả các kế thừa của màu gradient đó sẽ?",
+        "ans": "Tự động cập nhật"
+    },
+    {
+        "ques": "Khi căn chỉnh với Tab, có thể lựa chọn các điểm đánh dấu đầu dòng dạng bullet, đ",
+        "ans": "Đúng"
+    },
+    {
+        "ques": "Khi khởi tạo file mới, có thể lựa chọn số trang ngay trong hộp thoại New Documen",
+        "ans": "Number of Pages"
+    },
+    {
+        "ques": "Khi lựa chọn màu trên bảng Color, sau khi áp dụng màu đó cho đối tượng thì tự độ",
+        "ans": "Không được lưu tại bất kỳ bảng nào"
+    },
+    {
+        "ques": "Khi sử dụng công cụ Pen để vẽ sẽ tạo ra thành phần đồ hoạ nào?",
+        "ans": "Đường path"
+    },
+    {
+        "ques": "Khi sử dụng lệnh Step and Repeat, có thể sao chép và dán thành bao nhiêu đối tượ",
+        "ans": "Không giới hạn, miễn là đối tượng sau khi sao chép nằm vừa vùng pasteboard"
+    },
+    {
+        "ques": "Khi sử dụng lệnh Step and Repeat, không thể áp dụng cho graphic frame, đúng hay ",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Khi sử dụng tổ hợp phím tắt Ctrl + ; sẽ giúp thực hiện điều gì sau đây?",
+        "ans": "Hiển thị/ ẩn đường Guide"
+    },
+    {
+        "ques": "Khi thực hiện Place hình ảnh vào InDesign thì có hiện tượng nào sẽ xảy ra sau đâ",
+        "ans": "Nếu hình ảnh to hơn khung frame thì InDesign sẽ tự động crop hình ảnh đó"
+    },
+    {
+        "ques": "Khi thực hiện gen file thành dạng trang Index cần chú ý điều gì?",
+        "ans": "Luôn lựa chọn tuỳ chọn Include Book Document"
+    },
+    {
+        "ques": "Khi thực hiện kéo icon fx sang đối tượng khác đồng nghĩa với việc thực hiện điều",
+        "ans": "copy hiệu ứng và áp dụng cho đối tượng khác"
+    },
+    {
+        "ques": "Khi áp dụng hiệu ứng trong InDesign, không thể thay đổi được thông số giá trị mặ",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Khi đã có kiểu (style), không thể áp dụng cho ký tự khác được, đúng hay sai?",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Khi đã thực hiện chuyển đổi text thành dạng vector thì không thể chuyển đổi ngượ",
+        "ans": "Đúng"
+    },
+    {
+        "ques": "Khu vực xung quanh tài liệu làm việc, mở rộng các đối tượng làm việc được gọi là?",
+        "ans": "Pasteboard"
+    },
+    {
+        "ques": "Không thể biến đổi đường viền của một hình khối thành dạng đường nét đứt, đúng h",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Không thể bẻ cong được đường path, đúng hay sai?",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Không thể tách (detach) một đối tượng master item, đúng hay sai?",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Không thể đặt thông số cho độ phân giải của file khi khởi tạo, đúng hay sai?",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Muốn thụt lùi đầu dòng của dòng đầu tiên trong khối nội dung văn bản, trong InDe",
+        "ans": "Tab"
+    },
+    {
+        "ques": "Muốn truy cập vào hộp thoại Polygon Setting, cần thực hiện như thế nào?",
+        "ans": "Lựa chọn nhấn đúp chuột vào công cụ Polygon"
+    },
+    {
+        "ques": "Mẫu màu trong bảng Swatches là mặc định, không thể thêm/ sửa/ xoá bất kì",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Ngoài cách copy/ paste khối nội dung văn bản từ bên ngoài vào InDesign, ta c",
+        "ans": "Sử dụng cách Place file văn bản vào InDesign"
+    },
+    {
+        "ques": "Nút nào có xuất hiện trên thanh công cụ?",
+        "ans": "Apply Gradient"
+    },
+    {
+        "ques": "Nếu hình ảnh được Place vào một ô của Table mà hình ảnh đó quá to thì điều gì sẽ",
+        "ans": "Kích thươc của hình ảnh sẽ tự động thu nhỏ để phù hợp với kích cỡ của ô"
+    },
+    {
+        "ques": "Nếu không muốn trang trong tệp áp dụng trang master, có thể thực hiện bằng cách ",
+        "ans": "Áp dụng trang None master cho trang trong tệp"
+    },
+    {
+        "ques": "Nếu như trang quá to, muốn kéo tới phần đối tượng khác để làm việc, ta có thể sử dụng công cụ nào sau đây?",
+        "ans": "Hand"
+    },
+    {
+        "ques": "Table có thể được tạo trong thành phần nào sau đây?",
+        "ans": "textframe"
+    },
+    {
+        "ques": "Theo mặc định khi Place hình ảnh vào InDesign thì đồng nghĩa với việc gì/",
+        "ans": "InDesign sẽ ghi nhớ đường dẫn tới file bạn vừa Place vào"
+    },
+    {
+        "ques": "Theo mặc định, chỉ có 1 hiệu ứng cho các góc của hình khối, đúng hay sai?",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Theo mặc định, không thể căn trái các đối tượng đang có trên vùng làm việc, đúng",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Theo mặc định, trang master đầu tiên sẽ được đặt tên theo dạng?",
+        "ans": "A- Master"
+    },
+    {
+        "ques": "Thành phần nào cho phép tạo ra hiệu ứng về trộn màu sắc cũng như sự khác biệt củ",
+        "ans": "chế độ hoà trộn"
+    },
+    {
+        "ques": "Thành phần nào chỉ xuất hiện trong bảng Color mà không có trên bảng Swatches?",
+        "ans": "Thanh trượt màu"
+    },
+    {
+        "ques": "Thành phần nào có thể chỉnh sửa thông qua bảng Character/",
+        "ans": "Kerning"
+    },
+    {
+        "ques": "Thành phần nào giúp căn chỉnh các đối tượng một cách thẳng hàng, khi di chuyển đối tượng tới gần thành phần này thì các đối tượng sẽ tự động bắt dính?",
+        "ans": "Guide"
+    },
+    {
+        "ques": "Thành phần nào sau đây không xuất hiện trên hộp thoại New Document?",
+        "ans": "Leading"
+    },
+    {
+        "ques": "Thành phần nào sau đây được định nghĩa như dạng template (mẫu) được thiết kế để ",
+        "ans": "Master"
+    },
+    {
+        "ques": "Thành phần nào thường được sử dụng để tạo trang mục lục?",
+        "ans": "paragraph style"
+    },
+    {
+        "ques": "Thành phần nào xuất hiện trên bảng Text Wrap?",
+        "ans": "Wrap To"
+    },
+    {
+        "ques": "Thành phần nào được định nghĩa là đường gióng của đoạn văn bản?",
+        "ans": "baseline"
+    },
+    {
+        "ques": "Thành phần nào được định nghĩa như một nhóm các thuộc tính của đối tượng?",
+        "ans": "Kiểu (style)"
+    },
+    {
+        "ques": "Thành phần đồ hoạ nào được xây dựng dựa trên các điểm neo và các đường path?",
+        "ans": "Vector"
+    },
+    {
+        "ques": "Trang master chỉ có thể áp dụng cho 1 trang con trong toàn bộ tệp tin, đúng hay ",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Trong bảng (panel) Table có thể căn chỉnh được yếu tố nào sau đây?",
+        "ans": "Căn chỉnh khối nội dung theo dạng giữa ô"
+    },
+    {
+        "ques": "Trong bảng (panel) Table có thể lựa chọn nhập text theo chiều nào?",
+        "ans": "Chiều ngang"
+    },
+    {
+        "ques": "Trong cuốn sách hoàn chỉnh, thành phần nào sau đây không thể thiếu được?",
+        "ans": "Số trang"
+    },
+    {
+        "ques": "Trong hộp thoại New Document có thể lựa chọn mấy tuỳ chọn về kiểu hiển thị khôn ",
+        "ans": "2"
+    },
+    {
+        "ques": "Trong hộp thoại Polygon Setting không thể lựa chọn được số cạnh của đa giác cần ",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Trên bảng Layer, khi xuất hiện icon dạng ngòi bút (Pen) bên cạnh layer có nghĩa ",
+        "ans": "layer đó đang được chọn và đang có các đối tượng được vẽ trên layer này"
+    },
+    {
+        "ques": "Trên bảng Link sẽ hiển thị điều gì bên cạnh hình ảnh vừa Place vào?",
+        "ans": "Thứ tự trang mà hình ảnh được place vào"
+    },
+    {
+        "ques": "Trên bảng Text Wrap, tuỳ chọn Wrap To quy định điều gì?",
+        "ans": "Quy định cách mà nội dung văn bản sẽ uốn cong quanh hình ảnh/ hình khối"
+    },
+    {
+        "ques": "Tuỳ chọn Align Stroke trên bảng Stroke quy định điều gì?",
+        "ans": "Quy định nơi đường viền được áp dụng"
+    },
+    {
+        "ques": "Tuỳ chọn nào có xuất hiện trên bảng Align?",
+        "ans": "Use Spacing"
+    },
+    {
+        "ques": "Tuỳ chọn nào trên bảng Pathfinder sẽ ưu tiên sử dụng khối bên trên để cắt khối h",
+        "ans": "subtract"
+    },
+    {
+        "ques": "Tuỳ chọn nào xuất hiện trên bảng Table?",
+        "ans": "Row Height"
+    },
+    {
+        "ques": "Tuỳ chọn nào xuất hiện trên hộp thoại tuỳ chọn Insert Table?",
+        "ans": "Footer Rows"
+    },
+    {
+        "ques": "Uốn cong đoạn văn bản quanh hình ảnh (hình khối) cũng là một thuộc tính của text",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Với công cụ Zoom, khi thực hiện nhấn đúp chuột vào công cụ nàu trên thanh công cụ thì hiện tượng gì sẽ xảy ra?",
+        "ans": "Đối tượng đang được phóng to trên cửa sổ làm việc sẽ trở về dạng xem 100%"
+    },
+    {
+        "ques": "nếu như đang bật phím Caps Lock, khi nhấn phím P thì InDesign sẽ không chuyển sang công cụ Pen. Đúng hay sai?",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Đâu là giải thích đúng về màu tint?",
+        "ans": "Là một màu đặc biệt có độ sáng được giảm bớt"
+    },
+    {
+        "ques": "Đâu là một dạng hiển thị hình ảnh dạng vector vào InDesign?",
+        "ans": "Typical"
+    },
+    {
+        "ques": "Đâu là một trong những giá trị của textframe?",
+        "ans": "In port"
+    },
+    {
+        "ques": "Đâu là một trong những không gian làm việc trên InDesign?",
+        "ans": "Typography"
+    },
+    {
+        "ques": "Đâu là một trong những kiểu của đường viền?",
+        "ans": "stripe"
+    },
+    {
+        "ques": "Đâu là một trong số những hiệu ứng mà InDesign cung cấp?",
+        "ans": "Gradient feather"
+    },
+    {
+        "ques": "Đâu là một trong số tuỳ chọn của lệnh Fitting?",
+        "ans": "Fit Frame to Content"
+    },
+    {
+        "ques": "Đâu là đơn vị tính của độ phân giải?",
+        "ans": "PPI"
+    },
+    {
+        "ques": "Đâu là định dạng file mà InDesign có thể làm việc được?",
+        "ans": ".ai"
+    },
+    {
+        "ques": "Đâu là định nghĩa chính xác về màu spot?",
+        "ans": "Là màu không phải là màu quy trình và do một công ty thứ 3 sản xuất"
+    },
+    {
+        "ques": "Đâu là định nghĩa về Clipping path?",
+        "ans": "Là vùng bao ngoài của đối tượng, có thể được tạo bởi các chương trình đồ hoạ khác hoặc Ngay trong InDesign"
+    },
+    {
+        "ques": "Đơn vị tính trên thanh ruler của Tab là inch, không thể thay đổi thành dạng đơn ",
+        "ans": "Sai"
+    },
+    {
+        "ques": "Để hiển thị thêm một bảng trong chương trình, có thể sử dụng thông qua menu nào sau đây?",
+        "ans": "Window"
+    },
+    {
+        "ques": "Để sao chép và dán đối tượng vào một khu vực với khoảng cách chính xác, có thể s",
+        "ans": "Step and repeat"
+    },
+    {
+        "ques": "Để thay đổi kiểu dáng áp dụng cho các góc khi thực hiện lệnh Live Corner Effects",
+        "ans": "Đúng"
+    },
+    {
+        "ques": "Để thực hiện chuyển đổi text thành dạng vector phải lựa chọn lệnh nào sau đây?",
+        "ans": "Conver Outline"
+    },
+    {
+        "ques": "Để thực hiện uốn cong đoạn văn bản quanh hình ảnh, trước tiên phải lựa chọn cả 2",
+        "ans": "Đúng"
+    },
+    {
+        "ques": "Để tắt chế độ uốn văn bản quanh hình ảnh, có thể sử dụng lệnh nào trong menu Obj",
+        "ans": "Ignore Text Wrap"
+    },
+    {
+        "ques": "Đối tượng hình khối trên trang có những thuộc tính gì?",
+        "ans": "Màu tô và màu đường viền"
+    },
+    {
+        "ques": "Đối với màu Spot được tạo bởi các chương trình đồ hoạ khác, sau khi được import ",
+        "ans": "Tự động được lưu trong bảng Swatches"
     }
 ]

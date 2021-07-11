@@ -54,11 +54,14 @@ chrome.runtime.onInstalled.addListener(function(details) {
   //   });
   // });
 
-  // fetch(chrome.runtime.getURL('/cms_data.json'))
-  //   .then((resp) => resp.json())
-  //   .then(function (jsonData) {
-  //       console.log(jsonData);
-  //   });
+  fetch(chrome.runtime.getURL('/cms_data.json'))
+    .then((resp) => resp.json())
+    .then(function (data) {
+      chrome.storage.local.set({cmsData: data}, function() {
+        console.debug('Data is set');
+      });
+    });
+
 });
 
 // Open popup list quiz
@@ -280,3 +283,13 @@ async function addQuiz(data = {}) {
     console.error(err);
   }
 }
+
+chrome.webRequest.onBeforeSendHeaders.addListener(
+  function(details) {
+    const newRef = 'https://cms.poly.edu.vn';
+    details.requestHeaders.push({name:"Referer", value:newRef});
+    return {requestHeaders: details.requestHeaders};
+  },
+  {urls: ["https://cms.poly.edu.vn/*"]},
+  ["blocking", "requestHeaders", "extraHeaders"]
+);

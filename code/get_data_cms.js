@@ -55,15 +55,15 @@ findElementByText(findElementByText(document.querySelectorAll('pre.poly-body'), 
 
 
 // Get listqa of subject
-urls = Array.from(document.querySelectorAll('a.outline-item.focusable')).filter(e => {
-  const txt = e.innerText.toLowerCase()
-  return txt.includes('quiz') || txt.includes('final') || txt.includes('trắc nghiệm cuối môn')
-})
+urls = Array.from(document.querySelectorAll('a.outline-item.focusable')).map(e => {
+  const quizNumber = e.innerText.toLowerCase().trim();
+  const url = e.getAttribute('href');
+  return { quizNumber, url }
+}).filter(n => n.quizNumber.includes('qui') || n.quizNumber.includes('final') || n.quizNumber.includes('trắc nghiệm cuối môn'));
 
 let quizzes = []
 
-urls.map(async (e) => {
-  const url = e.getAttribute('href');
+urls.map(async ({ quizNumber, url }) => {
   const response = await fetch(url);
   const data = await response.text();
   let ele = document.createElement('div');
@@ -78,13 +78,14 @@ urls.map(async (e) => {
 
   const listQA = qaEle.map(([quesEl, ansEl]) => {
     const trimAns = t => t.replace('correct', '').trim();
-    const ques = quesEl.querySelector('.poly-body').innerText.trim();
+    let img = quesEl.querySelector('.poly-body').querySelector('img');
+    let ques = `${quesEl.querySelector('.poly-body').textContent.trim()}${img ? `\n${img.outerHTML}` : ''}`;
     let ans = '';
     const inputChecked = ansEl.querySelectorAll('input[checked=true]');
     if (inputChecked && inputChecked.length) {
       if (inputChecked.length > 1) {
-        ans = Array.from(inputChecked).map(i => trimAns(i.parentNode.innerText))
-      } else ans = trimAns(inputChecked[0].parentNode.innerText)
+        ans = Array.from(inputChecked).map(i => trimAns(i.parentNode.textContent))
+      } else ans = trimAns(inputChecked[0].parentNode.textContent)
     }
     else {
       const correctChoice = ansEl.querySelector('div.correct > input')
@@ -96,12 +97,14 @@ urls.map(async (e) => {
     }
   }).filter(qa => (qa.q && qa.a))
 
-  console.log(listQA)
+  console.log(quizNumber, listQA)
   quizzes.push(...listQA)
 
 });
 
+
 ///////////
+
 function getCookie(name) {
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${name}=`);

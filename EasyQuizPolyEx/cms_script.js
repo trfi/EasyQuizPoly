@@ -38,7 +38,8 @@ async function sendUserUsing(user, getQuizType, subjectName) {
         return;
       }
       [...document.querySelectorAll('.poly-body')].map(quesEl => {
-        let ques = quesEl.textContent.trim();
+        let img = quesEl.querySelector('img');
+        let ques = `${quesEl.textContent.trim()}${img ? `\n${img.outerHTML}` : ''}`;
         let ans = ansList.find(qa => qa.q === ques);
         if (ans) {
           Array.from(quesEl.parentNode.nextElementSibling.firstChild.firstElementChild.children)

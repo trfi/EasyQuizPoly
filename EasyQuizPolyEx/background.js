@@ -23,21 +23,8 @@ CMS bắt đầu làm bài xong chuột phải chọn Giải đáp án
 Mình có nhận làm hộ quiz CMS tất cả các môn, tất cả cơ sở ib fb`
 var apiUrl = 'https://tr-fi2.netlify.app/api/quizpoly/lms';
 
-// Show hide icon
-const match = {
-	conditions: [
-    new chrome.declarativeContent.PageStateMatcher({
-      pageUrl: { urlMatches: '(cms.poly.edu.vn|lms.poly.edu.vn)' }
-    })
-  ],
-  actions: [ new chrome.declarativeContent.ShowPageAction() ]
-};
-
 
 chrome.runtime.onInstalled.addListener(function(details) {
-  chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-    chrome.declarativeContent.onPageChanged.addRules([match]);
-  });
 
   chrome.contextMenus.create({
     id: 'getQuestion',
@@ -59,13 +46,22 @@ chrome.runtime.onInstalled.addListener(function(details) {
   // }
 
   // Get CMS data
-  fetch('https://tr-fi2.netlify.app/api/cms')
-  .then(response => response.json())
-  .then(data => {
-    chrome.storage.local.set({cmsData: data}, function() {
-      console.debug('Data is set');
+  // fetch('https://tr-fi2.netlify.app/api/cms')
+  // .then(response => response.json())
+  // .then(data => {
+  //   chrome.storage.local.set({cmsData: data}, function() {
+  //     console.debug('Data is set');
+  //   });
+  // });
+
+  fetch(chrome.runtime.getURL('/cms_data.json'))
+    .then((resp) => resp.json())
+    .then(function (data) {
+      chrome.storage.local.set({cmsData: data}, function() {
+        console.debug('Data is set');
+      });
     });
-  });
+
 });
 
 // Open popup list quiz
@@ -113,19 +109,6 @@ chrome.contextMenus.onClicked.addListener(function(info, tab) {
   }
 })
 
-chrome.pageAction.onClicked.addListener(function(tab) {
-  const tab_url = tab.url
-  if (tab_url.includes('cms.poly.edu.vn')) {
-    executeScript(tab_url)
-  }
-  else if (tab_url.includes('lms.poly.edu.vn')) {
-    executeScript(tab_url)
-  }
-  else {
-    alert(wrong_url_notication)
-  }
-})
-
 var quizSelf = {}
 var windowId = 0
 
@@ -147,8 +130,8 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       chrome.windows.remove(windowId);
       break;
     case 'add_quiz_self':
-      let ans = request.data.ans
-      if (ans && typeof(ans) == 'object') request.data.ans = Object.values(ans).join('|')
+      let ans = request.data.ans;
+      if (ans && typeof(ans) == 'object') request.data.ans = Object.values(ans);
       quizSelf[request.seq] = request.data;
       console.debug(request.data.ans);
       console.debug(quizSelf);
@@ -300,3 +283,13 @@ async function addQuiz(data = {}) {
     console.error(err);
   }
 }
+
+chrome.webRequest.onBeforeSendHeaders.addListener(
+  function(details) {
+    const newRef = 'https://cms.poly.edu.vn';
+    details.requestHeaders.push({name:"Referer", value:newRef});
+    return {requestHeaders: details.requestHeaders};
+  },
+  {urls: ["https://cms.poly.edu.vn/*"]},
+  ["blocking", "requestHeaders", "extraHeaders"]
+);

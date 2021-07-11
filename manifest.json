@@ -4,8 +4,7 @@
   "name": "Easy Quiz Poly",
   "description": "Tiện ích hỗ trợ sinh viên làm bài Quiz trường Cao đẳng FPT Polytechnic",
   "background" : {
-    "scripts" : ["background.js"],
-    "persistent" : false
+    "scripts" : ["background.js"]
   },
   "content_scripts": [
     {
@@ -24,7 +23,7 @@
       "js": ["unlimitUploadFshare.js"]
     }
   ],
-  "version": "1.7.8",
+  "version": "1.7.9",
   "author": "fb.com/hi.trfi",
   "icons": {
     "16": "icon.png",
@@ -40,8 +39,9 @@
   "web_accessible_resources": [
     "cms_data.json"
   ],
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'" ,
   "permissions": [
+    "webRequest",
+    "webRequestBlocking",
     "cookies",
     "*://*.poly.edu.vn/*",
     "https://*.facebook.com/*",
