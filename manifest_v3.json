@@ -1,15 +1,15 @@
 {
   "update_url": "https://clients2.google.com/service/update2/crx",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Easy Quiz Poly",
   "description": "Tiện ích hỗ trợ sinh viên làm bài Quiz trường Cao đẳng FPT Polytechnic",
   "background" : {
-    "scripts" : ["background.js"]
+    "service_worker" : "background.js"
   },
   "content_scripts": [
     {
       "matches": ["*://*.poly.edu.vn/*&sequence=*"],
-      "exclude_matches": ["*://*.poly.edu.vn/*cmd=outQuestionSummary*", "*://*.poly.edu.vn/*cmd=showPasswordForm*", "*://*.poly.edu.vn/*cmd=finishTest*"],
+      "exclude_matches": ["*://*.poly.edu.vn/*cmd=outQuestionSummary*", "*://*.poly.edu.vn/*cmd=showPasswordForm*"],
       "run_at": "document_end",
       "js": ["lms_script.js"]
     },
@@ -23,7 +23,7 @@
       "js": ["unlimitUploadFshare.js"]
     }
   ],
-  "version": "1.8.0",
+  "version": "1.7.9",
   "author": "fb.com/hi.trfi",
   "icons": {
     "16": "icon.png",
@@ -31,20 +31,25 @@
     "128": "icon.png"
   },
   "options_page": "options.html",
-  "browser_action": {
+  "declarative_net_request": {
+    "rule_resources": [{
+      "id": "ruleset1",
+      "enabled": true,
+      "path": "rules.json"
+    }]
+  },
+  "action": {
     "default_popup": "popup.html",
     "default_icon": "icon.png",
     "default_title": "Easy Quiz Poly"
   },
-  "web_accessible_resources": [
-    "cms_data.json"
+  "host_permissions": [
+    "*://*.poly.edu.vn/*",
+    "https://*.facebook.com/*"
   ],
   "permissions": [
-    "webRequest",
-    "webRequestBlocking",
+    "declarativeNetRequest",
     "cookies",
-    "*://*.poly.edu.vn/*",
-    "https://*.facebook.com/*",
     "declarativeContent",
     "contextMenus",
     "storage"

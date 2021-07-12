@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        { "header": "Referer", "operation": "append", "value": "https://cms.poly.edu.vn" }
+      ]
+    },
+    "condition": { "urlFilter": "cms.poly.edu.vn", "resourceTypes": ["main_frame"] }
+  }
+]

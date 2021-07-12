@@ -9,7 +9,7 @@
   "content_scripts": [
     {
       "matches": ["*://*.poly.edu.vn/*&sequence=*"],
-      "exclude_matches": ["*://*.poly.edu.vn/*cmd=outQuestionSummary*", "*://*.poly.edu.vn/*cmd=showPasswordForm*"],
+      "exclude_matches": ["*://*.poly.edu.vn/*cmd=outQuestionSummary*", "*://*.poly.edu.vn/*cmd=showPasswordForm*", "*://*.poly.edu.vn/*cmd=finishTest*"],
       "run_at": "document_end",
       "js": ["lms_script.js"]
     },
@@ -23,7 +23,7 @@
       "js": ["unlimitUploadFshare.js"]
     }
   ],
-  "version": "1.7.9",
+  "version": "1.8.0",
   "author": "fb.com/hi.trfi",
   "icons": {
     "16": "icon.png",

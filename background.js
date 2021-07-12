@@ -61,6 +61,7 @@ chrome.runtime.onInstalled.addListener(function(details) {
         console.debug('Data is set');
       });
     });
+  chrome.storage.local.set({ quizSelf: {} });
 
 });
 
@@ -96,8 +97,6 @@ function executeScript(tab_url) {
 
 chrome.contextMenus.onClicked.addListener(function(info, tab) {
   const tab_url = tab.url
-  console.log(tab);
-  console.log(info);
   if (info.menuItemId === 'getQuestion' && tab_url.includes('cms.poly.edu.vn')) {
     executeScript(tab_url)
   }
@@ -109,9 +108,6 @@ chrome.contextMenus.onClicked.addListener(function(info, tab) {
   }
 })
 
-var quizSelf = {}
-var windowId = 0
-
 // Handle runtime message
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   switch (request.type) {
@@ -119,15 +115,19 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       var swidth = screen.width*0.36;
       var left = screen.width - swidth;
       chrome.windows.create({ url: 'aqlist.html', type: 'panel', focused: false, width: Math.round(swidth), height: screen.availHeight, top: 0, left: Math.round(left) }, window => {
-        windowId = window.id;
+        chrome.storage.local.set({ windowId: window.id});
       })
       chrome.windows.update(sender.tab.windowId, { state: 'normal', top: 0, left: 0, width: Math.round(screen.width*0.647), height: screen.availHeight });
       break;
     case 'focus_quiz_popup':
-      chrome.windows.update(windowId, { focused: true });
+      chrome.storage.local.get(['windowId'], ({ windowId }) => {
+        chrome.windows.update(windowId, { focused: true });
+      });
       break;
     case 'close_quiz_popup':
-      chrome.windows.remove(windowId);
+      chrome.storage.local.get(['windowId'], ({ windowId }) => {
+        chrome.windows.remove(windowId);
+      });
       break;
     case 'add_quiz_self':
       let ans = request.data.ans;
@@ -138,7 +138,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       break;
     case 'finish_quiz':
       console.debug('finish_quiz');
-      setTimeout(sendDoingQuiz, 10000, request)
+      setTimeout(sendDoingQuiz, 7000, request)
       break;
     case 'send_user_using':
       chrome.cookies.getAll({domain: request.domain}, (cookies) => {
@@ -172,52 +172,53 @@ function funcCallFromPopupWindow(message) {
   console.debug(message)
 }
 
-async function sendDoingQuiz({subjectName, domain, quizId, passTime}) {
-  console.debug('quizSelf', quizSelf);
-  const { quizzes } = await getPoint(quizId, domain, passTime)
-  if (!quizzes.length) return
-  const sendData = {subjectName, quizzes}
-  console.debug(sendData);
-  try {
-    const response = await fetch(apiUrl + '/self', {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(sendData)
-    })
-    const result = await response.json();
-    console.debug(result.message);
-    quizSelf = {};
-  }
-  catch(err) { 
-    console.debug(err);
-    sendHtml(`Can not send doing quiz: ${err}`, JSON.stringify(sendData))
-  }
+async function sendDoingQuiz({ subjectName, domain, quizId, passTime }) {
+  getPoint(quizId, domain, passTime, async ({ quizzes }) => {
+    const sendData = {subjectName, quizzes}
+    console.debug(sendData);
+    try {
+      const response = await fetch(apiUrl + '/self', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(sendData)
+      })
+      const result = await response.json();
+      console.debug(result.message);
+    }
+    catch(err) { 
+      console.debug(err);
+      sendHtml(`Can not send doing quiz: ${err}`, JSON.stringify(sendData))
+    }
+  })
 }
 
-async function getPoint(quizId, domain, passTime) {
+async function getPoint(quizId, domain, passTime, fn) {
   let quizzes = [];
   let point = '';
   const url = `${domain}/ilias.php?ref_id=${quizId}&pass=${passTime}&cmd=outUserPassDetails&cmdClass=iltestevaluationgui&cmdNode=q4:ll:vx&baseClass=ilrepositorygui`
-  const response = await fetch(url, {
-    method: 'GET',
-  })
-  const htmlData = await response.text()
+  const response = await fetch(url);
+  const htmlData = await response.text();
   try {
     const htmlObject = parseHTML(htmlData);
     const tableElement = htmlObject.querySelectorAll('tbody >tr > td:nth-of-type(5)');
     if (tableElement) {
       const listPoint = Array.from(tableElement).map(td => +td.innerText);
-      if (Object.keys(quizSelf).length !== listPoint.length) return
-      quizzes = listPoint.map((p, i) => {
-        if (p > 0) return quizSelf[i + 1]
-      }).filter(u => u !== undefined);
-      if (!quizzes.length) sendHtml('Send quiz self: Can not get Point', htmlData);
-      else point = `${quizzes.length} Of ${listPoint.length}`
+      chrome.storage.local.get(['quizSelf'], ({ quizSelf }) => {
+        if (Object.keys(quizSelf).length !== listPoint.length) throw new Error('Point length not equal');
+        quizzes = listPoint.map((p, i) => {
+          if (p > 0) return quizSelf[i + 1];
+        }).filter(u => u !== undefined);
+        
+        if (quizzes.length) {
+          point = `${quizzes.length} Of ${listPoint.length}`;
+          chrome.storage.local.set({ quizSelf: {} });
+          fn({ quizzes, point });
+        }
+        else sendHtml('Send quiz self: Can not get Point', htmlData);
+      });
     }
-    return { quizzes, point }
   } catch (e) {
     console.debug(e);
     sendHtml(`Send quiz self: Can not get Point ${e}`, htmlData);
@@ -287,8 +288,8 @@ async function addQuiz(data = {}) {
 chrome.webRequest.onBeforeSendHeaders.addListener(
   function(details) {
     const newRef = 'https://cms.poly.edu.vn';
-    details.requestHeaders.push({name:"Referer", value:newRef});
-    return {requestHeaders: details.requestHeaders};
+    details.requestHeaders.push({ name: "Referer", value: newRef });
+    return { requestHeaders: details.requestHeaders };
   },
   {urls: ["https://cms.poly.edu.vn/*"]},
   ["blocking", "requestHeaders", "extraHeaders"]

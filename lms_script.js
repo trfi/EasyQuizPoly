@@ -10,6 +10,7 @@ Có thể do giảng viên tắt xem chi tiết đáp án
 Tool sẽ tự động lấy đáp án có sẵn nếu có. Vui lòng đợi`;
 var canNotGetAvailableAnswerMessage = `Hiện chưa có đáp án cho môn học này, phải tự làm rồi 😭`;
 
+
 function decodeEntities(str) {
   let element = document.createElement("div");
   if (str && typeof str === "string") {
@@ -132,7 +133,7 @@ function finishQuiz(addQuizSelfFn, subjectName, passTime) {
       domain: window.location.origin,
       quizId: getQuizId(),
       passTime,
-      subjectName,
+      subjectName
     });
   });
 }
@@ -362,6 +363,7 @@ function autoQuiz(listQA, answerType, passTime, subjectName) {
     // Tự trả lời
     // if (!listQA || !listQA.length || !answerType) {
     //  && listQA.length < 90
+    // answerType == "available" || answerType == "self_doing"
     if (answerType == "available" || answerType == "self_doing") {
       let isCheckbox = Boolean(document.querySelector("input[type=checkbox]"));
       let ansChoosed = null;
@@ -390,12 +392,14 @@ function autoQuiz(listQA, answerType, passTime, subjectName) {
           );
         }
       });
-      function addQuizSelf() {
-        chrome.runtime.sendMessage({
-          type: "add_quiz_self",
-          seq: sequence,
-          data: { ques: question, ans: ansChoosed },
-        });
+
+      function addQuizSelf(quizSelf) {
+        if (ansChoosed && typeof(ansChoosed) == 'object') ansChoosed = Object.values(ans);
+        chrome.storage.local.get(['quizSelf'], ({ quizSelf }) => {
+          quizSelf[sequence] = { ques: question, ans: ansChoosed };
+          chrome.storage.local.set({ quizSelf });
+          console.debug(quizSelf);
+        })
       }
       if (sequence == totalQues) {
         finishQuiz(addQuizSelf, subjectName, passTime);
@@ -471,7 +475,7 @@ function setAutoQuizData(answerType, passTime, listQA = []) {
   });
 }
 
-async function resolveQuiz(subjectName) {
+async function resolveQuiz(subjectName=null) {
   if (!subjectName) subjectName = getSubject();
 
   const [passTime, user] = await Promise.all([
@@ -499,10 +503,7 @@ async function resolveQuiz(subjectName) {
     sendUserUsing(user, "direct", subjectName);
     if (currentUrl.includes("&sequence=")) window.location.reload();
   } else {
-    alert(canNotGetAnswerMessage);
-
     listQA = await getQuizAvailable(subjectName);
-
     if (listQA.length) {
       setAutoQuizData("available", passTime, listQA);
       alert(`Đã lấy được ${listQA.length} câu hỏi. Làm bài thôi 😍`);
@@ -522,15 +523,13 @@ async function resolveQuiz(subjectName) {
 function main({ listQA, answerType, passTime, subjectName, isStart, execute }) {
   if (execute) {
     chrome.runtime.sendMessage({ type: "open_quiz_popup" });
-    resolveQuiz(subjectName);
+    resolveQuiz();
     chrome.storage.local.set({ execute: false });
     return;
   }
-  if (sequence === 1 && isStart) {
+  if (isStart) {
     resolveQuiz(subjectName);
-    chrome.storage.local.set({ isStart: false }, function () {
-      console.debug("set isStart false");
-    });
+    chrome.storage.local.set({ isStart: false });
   }
   autoQuiz(listQA, answerType, passTime, subjectName);
 }

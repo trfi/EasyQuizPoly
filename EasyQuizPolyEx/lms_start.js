@@ -42,12 +42,13 @@ function getSubject() {
   }
 }
 
+var subjectName = getSubject();
 
 function main() {
   chrome.runtime.sendMessage({ type: "open_quiz_popup" });
   chrome.storage.local.remove("listQA");
-  chrome.storage.local.set({ subjectName: getSubject(), isStart: true }, function () {
-    console.debug("set list QA");
+  chrome.storage.local.set({ subjectName, isStart: true }, function () {
+    console.debug("set subject");
   });
 }
 
